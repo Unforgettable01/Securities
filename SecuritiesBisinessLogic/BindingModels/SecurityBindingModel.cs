@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SecuritiesBisinessLogic.BindingModels
 {
-    public class Securities
+    public class SecurityBindingModel
     {
         public int? Id { get; set; }
         public decimal BuyPrice { get; set; }

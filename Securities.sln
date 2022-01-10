@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecuritiesView", "Securities\SecuritiesView.csproj", "{2724F579-C196-45E8-9A59-534883BF597D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecuritiesDatabase", "SecuritiesDatabase\SecuritiesDatabase.csproj", "{DD7E2330-068E-43B9-B7EE-3F34E242AA2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecuritiesDatabase", "SecuritiesDatabase\SecuritiesDatabase.csproj", "{DD7E2330-068E-43B9-B7EE-3F34E242AA2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecuritiesBisinessLogic", "SecuritiesBisinessLogic\SecuritiesBisinessLogic.csproj", "{25018D7D-F02E-4662-9173-3DE741CDDB28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecuritiesBusinessLogic", "SecuritiesBisinessLogic\SecuritiesBusinessLogic.csproj", "{25018D7D-F02E-4662-9173-3DE741CDDB28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
