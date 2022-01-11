@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
-namespace SecuritiesBisinessLogic.ViewLogics
+namespace SecuritiesBisinessLogic.ViewModels
 {
     public class SecurityViewModel
     {
@@ -13,7 +13,7 @@ namespace SecuritiesBisinessLogic.ViewLogics
         [DisplayName("Цена продажи")]
         public decimal SalePrice { get; set; }
         [DisplayName("Эмитент")]
-        public string EmitentId { get; set; }
+        public string EmitentName { get; set; }
 
     }
 }

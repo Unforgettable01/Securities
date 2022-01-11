@@ -1,12 +1,12 @@
 ﻿using SecuritiesBisinessLogic.BindingModels;
-using SecuritiesBisinessLogic.ViewLogics;
+using SecuritiesBisinessLogic.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace SecuritiesBisinessLogic.Interfaces
 {
-    public interface IPaymentContractBuy
+    public interface IPaymentContractBuyStorage
     {
         List<PaymentContractBuyViewModel> GetFullList();
         List<PaymentContractBuyViewModel> GetFilteredList(PaymentContractBuyBindingModel model);

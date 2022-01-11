@@ -70,5 +70,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SecuritiesBisinessLogic\SecuritiesBusinessLogic.csproj">
+      <Project>{25018d7d-f02e-4662-9173-3de741cddb28}</Project>
+      <Name>SecuritiesBusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecuritiesDatabase\SecuritiesDatabase.csproj">
+      <Project>{dd7e2330-068e-43b9-b7ee-3f34e242aa2d}</Project>
+      <Name>SecuritiesDatabase</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

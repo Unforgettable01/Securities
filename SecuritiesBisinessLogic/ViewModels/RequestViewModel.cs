@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Runtime.Serialization;
 using System.Text;
 
-namespace SecuritiesBisinessLogic.ViewLogics
+namespace SecuritiesBisinessLogic.ViewModels
 {
     public class RequestViewModel
     {
@@ -12,9 +13,11 @@ namespace SecuritiesBisinessLogic.ViewLogics
         public DateTime RequestDate { get; set; }
         [DisplayName("Сумма")]
         public decimal RequestSum { get; set; }
-        [DisplayName("Имя клиента")]
-        public string ClientId { get; set; }
-        [DisplayName("Имя агента")]
-        public string AgentId { get; set; }
+        [DisplayName("ФИО клиента")]
+        public string ClientName { get; set; }
+        [DisplayName("ФИО агента")]
+        public string AgentName { get; set; }
+        [DataMember]
+        public Dictionary<int, (string, decimal)> RequestSecurity { get; set; }
     }
 }
