@@ -5,17 +5,16 @@ using System.Collections.Generic;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace SecuritiesDatabase.Models
+namespace SecuritiesDatabase
 {
-    public partial class Client
+    public partial class Agent
     {
-        public Client()
+        public Agent()
         {
             Request = new HashSet<Request>();
         }
 
         public int Id { get; set; }
-        public string PassportNumber { get; set; }
         public string Fio { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }

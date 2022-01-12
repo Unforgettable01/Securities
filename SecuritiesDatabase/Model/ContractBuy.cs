@@ -5,13 +5,13 @@ using System.Collections.Generic;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace SecuritiesDatabase.Models
+namespace SecuritiesDatabase
 {
-    public partial class ContractBuySale
+    public partial class ContractBuy
     {
-        public ContractBuySale()
+        public ContractBuy()
         {
-            PaymentContractBuySale = new HashSet<PaymentContractBuySale>();
+            PaymentContractBuy = new HashSet<PaymentContractBuy>();
         }
 
         public int Id { get; set; }
@@ -20,6 +20,6 @@ namespace SecuritiesDatabase.Models
         public int? RequestId { get; set; }
 
         public virtual Request Request { get; set; }
-        public virtual ICollection<PaymentContractBuySale> PaymentContractBuySale { get; set; }
+        public virtual ICollection<PaymentContractBuy> PaymentContractBuy { get; set; }
     }
 }

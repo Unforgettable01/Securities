@@ -5,15 +5,17 @@ using System.Collections.Generic;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace SecuritiesDatabase.Models
+namespace SecuritiesDatabase
 {
-    public partial class PaymentContractBuySale
+    public partial class BagSecurities
     {
         public int Id { get; set; }
-        public DateTime? Date { get; set; }
+        public int? Count { get; set; }
         public decimal? Sum { get; set; }
-        public int? ContractBuySaleId { get; set; }
+        public int? BagId { get; set; }
+        public int? SecuritiesId { get; set; }
 
-        public virtual ContractBuySale ContractBuySale { get; set; }
+        public virtual Bag Bag { get; set; }
+        public virtual Security Securities { get; set; }
     }
 }
