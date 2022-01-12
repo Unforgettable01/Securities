@@ -63,6 +63,7 @@ namespace Securities
             this.buttonSave.TabIndex = 2;
             this.buttonSave.Text = "Сохранить";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // buttonUpdate
             // 
@@ -116,6 +117,7 @@ namespace Securities
             this.Controls.Add(this.labelName);
             this.Name = "FormEmitents";
             this.Text = "Эмитенты";
+            this.Load += new System.EventHandler(this.FormEmitents_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmitents)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
