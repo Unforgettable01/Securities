@@ -1,10 +1,10 @@
-﻿using SecuritiesBisinessLogic.BindingModels;
-using SecuritiesBisinessLogic.ViewModels;
+﻿using SecuritiesBusinessLogic.BindingModels;
+using SecuritiesBusinessLogic.ViewModels;
 using SecuritiesBusinessLogic.Interfaces;
 using System;
 using System.Collections.Generic;
 
-namespace SecuritiesBusinessLogic.BisinessLogics
+namespace SecuritiesBusinessLogic.BusinessLogics
 {
     public class SecurityBusinessLogic
     {

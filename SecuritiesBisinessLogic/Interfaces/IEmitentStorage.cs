@@ -1,10 +1,10 @@
-﻿using SecuritiesBisinessLogic.BindingModels;
-using SecuritiesBisinessLogic.ViewModels;
+﻿using SecuritiesBusinessLogic.BindingModels;
+using SecuritiesBusinessLogic.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SecuritiesBisinessLogic.Interfaces
+namespace SecuritiesBusinessLogic.Interfaces
 {
     public interface IEmitentStorage
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SecuritiesBisinessLogic.BindingModels
+namespace SecuritiesBusinessLogic.BindingModels
 {
     public class SecurityBindingModel
     {

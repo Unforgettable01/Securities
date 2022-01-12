@@ -1,5 +1,5 @@
-﻿using SecuritiesBisinessLogic.BindingModels;
-using SecuritiesBisinessLogic.ViewModels;
+﻿using SecuritiesBusinessLogic.BindingModels;
+using SecuritiesBusinessLogic.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
-namespace SecuritiesBisinessLogic.ViewModels
+namespace SecuritiesBusinessLogic.ViewModels
 {
     public class ClientViewModel
     {

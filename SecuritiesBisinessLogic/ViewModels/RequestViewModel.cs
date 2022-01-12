@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace SecuritiesBisinessLogic.ViewModels
+namespace SecuritiesBusinessLogic.ViewModels
 {
     public class RequestViewModel
     {
