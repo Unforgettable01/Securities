@@ -8,6 +8,7 @@ namespace SecuritiesBusinessLogic.BindingModels
     {
         public int? Id { get; set; }
         public string Status { get; set; }
+        public decimal Sum { get; set; }
         public int RequestId { get; set; }
     }
 }

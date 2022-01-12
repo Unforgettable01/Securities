@@ -10,6 +10,8 @@ namespace SecuritiesBusinessLogic.ViewModels
         public int Id { get; set; }
         [DisplayName("Статус")]
         public string Status { get; set; }
+        [DisplayName("Сумма")]
+        public decimal? Sum { get; set; }
         [DisplayName("Номер заявки")]
         public int RequestId { get; set; }
     }

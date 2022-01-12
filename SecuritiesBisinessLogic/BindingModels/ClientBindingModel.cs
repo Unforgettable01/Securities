@@ -9,6 +9,7 @@ namespace SecuritiesBusinessLogic.BindingModels
         public int? Id { get; set; }
         public string PassportNumber { get; set; }
         public string ClientName { get; set; }
+        public string ClientLogin { get; set; }
         public string ClientPassword { get; set; }
     }
 }

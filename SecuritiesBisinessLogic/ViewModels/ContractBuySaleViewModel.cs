@@ -11,7 +11,7 @@ namespace SecuritiesBusinessLogic.ViewModels
         [DisplayName("Статус")]
         public string Status { get; set; }
         [DisplayName("Сумма")]
-        public decimal ContractSum { get; set; }
+        public decimal? ContractSum { get; set; }
         [DisplayName("Номер заявки")]
         public int RequestId { get; set; }
     }
