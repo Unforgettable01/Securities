@@ -8,6 +8,8 @@ namespace SecuritiesBusinessLogic.ViewModels
     public class SecurityViewModel
     {
         public int Id { get; set; }
+        [DisplayName("Наименование")]
+        public string Name { get; set; }
         [DisplayName("Цена закупки")]
         public decimal BuyPrice { get; set; }
         [DisplayName("Цена продажи")]

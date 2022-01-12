@@ -5,20 +5,21 @@ using System.Collections.Generic;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace SecuritiesDatabase.Models
+namespace SecuritiesDatabase
 {
-    public partial class Agent
+    public partial class Bag
     {
-        public Agent()
+        public Bag()
         {
+            BagSecurities = new HashSet<BagSecurities>();
             Request = new HashSet<Request>();
         }
 
         public int Id { get; set; }
-        public string Fio { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
+        public string Status { get; set; }
+        public decimal? Sum { get; set; }
 
+        public virtual ICollection<BagSecurities> BagSecurities { get; set; }
         public virtual ICollection<Request> Request { get; set; }
     }
 }

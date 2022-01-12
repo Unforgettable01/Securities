@@ -11,6 +11,6 @@ namespace SecuritiesBusinessLogic.BindingModels
         public decimal RequestSum { get; set; }
         public int ClientId { get; set; }
         public int AgentId { get; set; }
-        public Dictionary<int?, (string, decimal?)> RequestSecurity { get; set; }
+        public int BagId { get; set; }
     }
 }

@@ -17,7 +17,7 @@ namespace SecuritiesBusinessLogic.ViewModels
         public string ClientName { get; set; }
         [DisplayName("ФИО агента")]
         public string AgentName { get; set; }
-        [DataMember]
-        public Dictionary<int?, (string, decimal?)> RequestSecurity { get; set; }
+        [DisplayName("Номер портфеля")]
+        public int BagId { get; set; }
     }
 }

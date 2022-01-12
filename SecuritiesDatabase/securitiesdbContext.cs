@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using SecuritiesDatabase.Models;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
 // If you have enabled NRTs for your project, then un-comment the following line:
@@ -22,6 +21,7 @@ namespace SecuritiesDatabase
 
         public virtual DbSet<Agent> Agent { get; set; }
         public virtual DbSet<Bag> Bag { get; set; }
+        public virtual DbSet<BagSecurities> BagSecurities { get; set; }
         public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<ContractBuy> ContractBuy { get; set; }
         public virtual DbSet<ContractBuySale> ContractBuySale { get; set; }
@@ -71,23 +71,42 @@ namespace SecuritiesDatabase
                     .HasIdentityOptions(null, null, null, 1000000L, null, null)
                     .UseIdentityAlwaysColumn();
 
-                entity.Property(e => e.RequestId).HasColumnName("requestId");
+                entity.Property(e => e.Status)
+                    .HasColumnName("status")
+                    .HasColumnType("character varying");
 
-                entity.Property(e => e.SecurityId).HasColumnName("securityId");
+                entity.Property(e => e.Sum)
+                    .HasColumnName("sum")
+                    .HasColumnType("money");
+            });
+
+            modelBuilder.Entity<BagSecurities>(entity =>
+            {
+                entity.ToTable("bagSecurities");
+
+                entity.Property(e => e.Id)
+                    .HasIdentityOptions(null, null, null, 1000000L, null, null)
+                    .UseIdentityAlwaysColumn();
+
+                entity.Property(e => e.BagId).HasColumnName("bagId");
+
+                entity.Property(e => e.Count).HasColumnName("count");
+
+                entity.Property(e => e.SecuritiesId).HasColumnName("securitiesId");
 
                 entity.Property(e => e.Sum)
                     .HasColumnName("sum")
                     .HasColumnType("money");
 
-                entity.HasOne(d => d.Request)
-                    .WithMany(p => p.Bag)
-                    .HasForeignKey(d => d.RequestId)
-                    .HasConstraintName("requestId");
+                entity.HasOne(d => d.Bag)
+                    .WithMany(p => p.BagSecurities)
+                    .HasForeignKey(d => d.BagId)
+                    .HasConstraintName("bagId");
 
-                entity.HasOne(d => d.Security)
-                    .WithMany(p => p.Bag)
-                    .HasForeignKey(d => d.SecurityId)
-                    .HasConstraintName("securityId");
+                entity.HasOne(d => d.Securities)
+                    .WithMany(p => p.BagSecurities)
+                    .HasForeignKey(d => d.SecuritiesId)
+                    .HasConstraintName("securitiesId");
             });
 
             modelBuilder.Entity<Client>(entity =>
@@ -234,6 +253,8 @@ namespace SecuritiesDatabase
 
                 entity.Property(e => e.AgentId).HasColumnName("agentId");
 
+                entity.Property(e => e.BagId).HasColumnName("bagId");
+
                 entity.Property(e => e.ClientId).HasColumnName("clientId");
 
                 entity.Property(e => e.Date)
@@ -248,6 +269,11 @@ namespace SecuritiesDatabase
                     .WithMany(p => p.Request)
                     .HasForeignKey(d => d.AgentId)
                     .HasConstraintName("agentId");
+
+                entity.HasOne(d => d.Bag)
+                    .WithMany(p => p.Request)
+                    .HasForeignKey(d => d.BagId)
+                    .HasConstraintName("bagId");
 
                 entity.HasOne(d => d.Client)
                     .WithMany(p => p.Request)
@@ -268,6 +294,10 @@ namespace SecuritiesDatabase
                     .HasColumnType("money");
 
                 entity.Property(e => e.EmitentId).HasColumnName("emitentId");
+
+                entity.Property(e => e.Name)
+                    .HasColumnName("name")
+                    .HasMaxLength(250);
 
                 entity.Property(e => e.SalePrice)
                     .HasColumnName("salePrice")

@@ -5,18 +5,15 @@ using System.Collections.Generic;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace SecuritiesDatabase.Models
+namespace SecuritiesDatabase
 {
-    public partial class Emitent
+    public partial class PaymentContractBuy
     {
-        public Emitent()
-        {
-            Security = new HashSet<Security>();
-        }
-
         public int Id { get; set; }
-        public string Name { get; set; }
+        public DateTime? Date { get; set; }
+        public decimal? Sum { get; set; }
+        public int? ContractBuyId { get; set; }
 
-        public virtual ICollection<Security> Security { get; set; }
+        public virtual ContractBuy ContractBuy { get; set; }
     }
 }
