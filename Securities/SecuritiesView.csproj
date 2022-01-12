@@ -207,26 +207,14 @@
     <Compile Include="MainFormAgent.Designer.cs">
       <DependentUpon>MainFormAgent.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainFormClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFormClient.Designer.cs">
+      <DependentUpon>MainFormClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormaAuthorization.resx">
-      <DependentUpon>FormaAuthorization.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAgents.resx">
-      <DependentUpon>FormAgents.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormClients.resx">
-      <DependentUpon>FormClients.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormEmitents.resx">
-      <DependentUpon>FormEmitents.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormRegistration.resx">
-      <DependentUpon>FormRegistration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainFormAgent.resx">
-      <DependentUpon>MainFormAgent.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
