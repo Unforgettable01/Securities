@@ -18,6 +18,6 @@ namespace SecuritiesBusinessLogic.ViewModels
         [DisplayName("ФИО агента")]
         public string AgentName { get; set; }
         [DataMember]
-        public Dictionary<int, (string, decimal)> RequestSecurity { get; set; }
+        public Dictionary<int?, (string, decimal?)> RequestSecurity { get; set; }
     }
 }

@@ -18,6 +18,7 @@ namespace SecuritiesDatabase.Implements
                 return context.Request
                     .Include(rec => rec.Bag)
                     .ThenInclude(rec => rec.Security)
+                    .ThenInclude(rec => rec.Emitent)
                     .ToList().Select(rec => new RequestViewModel
                 {
                     Id = rec.Id,
@@ -27,7 +28,7 @@ namespace SecuritiesDatabase.Implements
                     AgentName = rec.Agent.Fio,
                     RequestSecurity = rec.Bag
                     .ToDictionary(recD => recD.SecurityId,
-                    recD => (recD.Security?.SecurityName, recD.Security?.SalePrice))
+                    recD => (recD.Security?.Emitent.Name, recD.Security?.SalePrice))
                 }).ToList();
             }
         }
@@ -51,7 +52,7 @@ namespace SecuritiesDatabase.Implements
                         RequestSum = (decimal)rec.Sum,
                         ClientName = rec.Client.Fio,
                         AgentName = rec.Agent.Fio,
-                        RequestSecurity = rec.Bag.ToDictionary(recD => recD.SecurityId, recD => (recD.Security?.SecurityName, recD.Security?.SalePrice))
+                        RequestSecurity = rec.Bag.ToDictionary(recD => recD.SecurityId, recD => (recD.Security?.Emitent.Name, recD.Security?.SalePrice))
                     }).ToList();
             }
         }
@@ -77,7 +78,7 @@ namespace SecuritiesDatabase.Implements
                     RequestSum = (decimal)request.Sum,
                     ClientName = request.Client.Fio,
                     AgentName = request.Agent.Fio,
-                    RequestSecurity = request.Bag.ToDictionary(recD => recD.SecurityId, recD => (recD.Security?.SecurityName, recD.Security?.SalePrice))
+                    RequestSecurity = request.Bag.ToDictionary(recD => recD.SecurityId, recD => (recD.Security?.Emitent.Name, recD.Security?.SalePrice))
                 } : null;
             }
         }
