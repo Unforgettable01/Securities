@@ -243,12 +243,6 @@
     <Compile Include="FormSecurities.Designer.cs">
       <DependentUpon>FormSecurities.cs</DependentUpon>
     </Compile>
-    <Compile Include="FromPaymentContractsBuySale.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FromPaymentContractsBuySale.Designer.cs">
-      <DependentUpon>FromPaymentContractsBuySale.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainFormAgent.cs">
       <SubType>Form</SubType>
     </Compile>
