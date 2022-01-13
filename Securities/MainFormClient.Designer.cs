@@ -68,7 +68,7 @@ namespace Securities
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MainFormClient";
-            this.Text = "Ценные бумаги";
+            this.Text = "Главная форма клиента";
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);

@@ -48,12 +48,12 @@ namespace Securities
             })?[0];
             if (client != null)
             {
-                var form = Container.Resolve<MainFormAgent>();
+                var form = Container.Resolve<MainFormClient>();
                 form.ShowDialog();
             }
             else if (agent != null)
             {
-                var form = Container.Resolve<MainFormClient>();
+                var form = Container.Resolve<MainFormAgent>();
                 form.ShowDialog();
             }
             else
