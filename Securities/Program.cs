@@ -23,13 +23,15 @@ namespace Securities
             var container = BuildUnityContainer();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(container.Resolve<FormEmitents>());
+            Application.Run(container.Resolve<FormaAuthorization>());
         }
         private static IUnityContainer BuildUnityContainer()
         {
             var currentContainer = new UnityContainer();
             currentContainer.RegisterType<IEmitentStorage, EmitentStorage>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<EmitentBusinessLogic>(new HierarchicalLifetimeManager());
+
+
 
             return currentContainer;
         }

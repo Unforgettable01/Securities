@@ -221,8 +221,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormaAuthorization.resx">
+      <DependentUpon>FormaAuthorization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAgents.resx">
+      <DependentUpon>FormAgents.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEmitents.resx">
       <DependentUpon>FormEmitents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegistration.resx">
+      <DependentUpon>FormRegistration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

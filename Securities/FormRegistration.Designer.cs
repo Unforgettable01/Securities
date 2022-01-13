@@ -80,6 +80,7 @@ namespace Securities
             this.buttonRegistration.TabIndex = 5;
             this.buttonRegistration.Text = "Зарегистрироваться";
             this.buttonRegistration.UseVisualStyleBackColor = true;
+            this.buttonRegistration.Click += new System.EventHandler(this.buttonRegistration_Click);
             // 
             // textBoxName
             // 

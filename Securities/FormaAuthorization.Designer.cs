@@ -45,6 +45,7 @@ namespace Securities
             this.buttonEnterSystem.TabIndex = 0;
             this.buttonEnterSystem.Text = "Войти";
             this.buttonEnterSystem.UseVisualStyleBackColor = true;
+            this.buttonEnterSystem.Click += new System.EventHandler(this.buttonEnterSystem_Click);
             // 
             // labelLogin
             // 
@@ -86,6 +87,7 @@ namespace Securities
             this.buttonRegistration.TabIndex = 5;
             this.buttonRegistration.Text = "Регистрация";
             this.buttonRegistration.UseVisualStyleBackColor = true;
+            this.buttonRegistration.Click += new System.EventHandler(this.buttonRegistration_Click);
             // 
             // FormaAuthorization
             // 
