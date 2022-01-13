@@ -195,10 +195,10 @@ namespace Securities
         {
             if (dataGridViewSecurities.SelectedRows.Count != 0)
             {
-                textBoxBuyPrice.Text = dataGridViewSecurities.SelectedRows[0].Cells[1].Value.ToString();
-                textBoxSalePrice.Text = dataGridViewSecurities.SelectedRows[0].Cells[2].Value.ToString();
+                textBoxBuyPrice.Text = dataGridViewSecurities.SelectedRows[0].Cells[2].Value.ToString();
+                textBoxSalePrice.Text = dataGridViewSecurities.SelectedRows[0].Cells[3].Value.ToString();
                 FormEmitentName();
-                textBoxName.Text = dataGridViewSecurities.SelectedRows[0].Cells[4].Value.ToString();
+                textBoxName.Text = dataGridViewSecurities.SelectedRows[0].Cells[1].Value.ToString();
             }
         }
     }
