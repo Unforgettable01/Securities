@@ -195,22 +195,22 @@
     <Compile Include="FormaAuthorization.Designer.cs">
       <DependentUpon>FormaAuthorization.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAgents.cs">
+    <Compile Include="AgentView\FormAgents.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAgents.Designer.cs">
+    <Compile Include="AgentView\FormAgents.Designer.cs">
       <DependentUpon>FormAgents.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormClients.cs">
+    <Compile Include="AgentView\FormClients.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormClients.Designer.cs">
+    <Compile Include="AgentView\FormClients.Designer.cs">
       <DependentUpon>FormClients.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormContractsBuy.cs">
+    <Compile Include="AgentView\FormContractsBuy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormContractsBuy.Designer.cs">
+    <Compile Include="AgentView\FormContractsBuy.Designer.cs">
       <DependentUpon>FormContractsBuy.cs</DependentUpon>
     </Compile>
     <Compile Include="FormContractsBuySale.cs">
@@ -219,16 +219,16 @@
     <Compile Include="FormContractsBuySale.Designer.cs">
       <DependentUpon>FormContractsBuySale.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormEmitents.cs">
+    <Compile Include="AgentView\FormEmitents.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormEmitents.Designer.cs">
+    <Compile Include="AgentView\FormEmitents.Designer.cs">
       <DependentUpon>FormEmitents.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPaymentContractsBuy.cs">
+    <Compile Include="AgentView\FormPaymentContractsBuy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPaymentContractsBuy.Designer.cs">
+    <Compile Include="AgentView\FormPaymentContractsBuy.Designer.cs">
       <DependentUpon>FormPaymentContractsBuy.cs</DependentUpon>
     </Compile>
     <Compile Include="FormRegistration.cs">
@@ -237,16 +237,16 @@
     <Compile Include="FormRegistration.Designer.cs">
       <DependentUpon>FormRegistration.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSecurities.cs">
+    <Compile Include="AgentView\FormSecurities.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSecurities.Designer.cs">
+    <Compile Include="AgentView\FormSecurities.Designer.cs">
       <DependentUpon>FormSecurities.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFormAgent.cs">
+    <Compile Include="AgentView\MainFormAgent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainFormAgent.Designer.cs">
+    <Compile Include="AgentView\MainFormAgent.Designer.cs">
       <DependentUpon>MainFormAgent.cs</DependentUpon>
     </Compile>
     <Compile Include="ClientView\MainFormClient.cs">
@@ -266,10 +266,10 @@
     <EmbeddedResource Include="FormaAuthorization.resx">
       <DependentUpon>FormaAuthorization.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAgents.resx">
+    <EmbeddedResource Include="AgentView\FormAgents.resx">
       <DependentUpon>FormAgents.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormEmitents.resx">
+    <EmbeddedResource Include="AgentView\FormEmitents.resx">
       <DependentUpon>FormEmitents.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRegistration.resx">
