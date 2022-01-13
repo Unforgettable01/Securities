@@ -42,7 +42,22 @@ namespace SecuritiesDatabase.Implements
             using (var context = new securitiesdbContext())
             {
                 var agent = context.Agent
-                .FirstOrDefault(rec => rec.Id == model.Id);
+                .FirstOrDefault(rec => (rec.Id == model.Id) || (rec.Login == model.AgentLogin && rec.Password == model.AgentPassword));
+                return agent != null ?
+                CreateModel(agent) : null;
+            }
+        }
+
+        public AgentViewModel GetAgentLP(AgentBindingModel model)
+        {
+            if (model == null)
+            {
+                return null;
+            }
+            using (var context = new securitiesdbContext())
+            {
+                var agent = context.Agent
+                .FirstOrDefault(rec => rec.Login == model.AgentLogin && rec.Password == model.AgentPassword);
                 return agent != null ?
                 CreateModel(agent) : null;
             }

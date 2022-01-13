@@ -1,13 +1,11 @@
-﻿using System;
+﻿using SecuritiesBusinessLogic.BindingModels;
+using SecuritiesBusinessLogic.ViewModels;
+using SecuritiesBusinessLogic.BusinessLogics;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unity;
+using System.Text.RegularExpressions;
 
 namespace Securities
 {
@@ -15,22 +13,60 @@ namespace Securities
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
-        public FormaAuthorization()
+        private readonly ClientBusinessLogic _clientlogic;
+        private readonly AgentBusinessLogic _agentlogic;
+        public FormaAuthorization(ClientBusinessLogic clientlogic, AgentBusinessLogic agentlogic)
         {
             InitializeComponent();
+            _clientlogic = clientlogic;
+            _agentlogic = agentlogic;
         }
 
         private void buttonEnterSystem_Click(object sender, EventArgs e)
         {
-            if (textBoxLogin.Text == "admin")
+            if (string.IsNullOrEmpty(textBoxLogin.Text))
             {
-                var form = Container.Resolve<MainFormAgent>();
-                form.ShowDialog();
+                MessageBox.Show("Введите логин", "Ошибка", MessageBoxButtons.OK,
+               MessageBoxIcon.Error);
+                return;
             }
-            else if (textBoxLogin.Text == "client")
+            if (string.IsNullOrEmpty(textBoxPassword.Text))
             {
-                var form = Container.Resolve<MainFormClient>();
-                form.ShowDialog();
+                MessageBox.Show("Введите пароль", "Ошибка", MessageBoxButtons.OK,
+               MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                var client = _clientlogic.GetClientLP(new ClientBindingModel
+                     {
+                         ClientLogin = textBoxLogin.Text,
+                         ClientPassword = textBoxPassword.Text
+                     })?[0];
+                var agent = _agentlogic.GetAgentLP(new AgentBindingModel
+                {
+                    AgentLogin = textBoxLogin.Text,
+                    AgentPassword = textBoxPassword.Text
+                })?[0];
+                if (client != null)
+                {
+                    var form = Container.Resolve<MainFormAgent>();
+                    form.ShowDialog();
+                }
+                else if (agent != null)
+                {
+                    var form = Container.Resolve<MainFormClient>();
+                    form.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Пользователь не найден, зарегистрируйтесь", "Ошибка",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
