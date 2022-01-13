@@ -24,7 +24,7 @@ namespace SecuritiesDatabase.Implements
                         Sum = (decimal)rec.Sum,
                         BagSecurities = rec.BagSecurities
                     .ToDictionary(recD => recD.SecuritiesId,
-                    recD => (recD.Securities?.Name, recD.Sum))
+                    recD => (recD.Securities?.Name, recD.Count, recD.Sum))
                     }).ToList();
             }
         }
@@ -46,7 +46,7 @@ namespace SecuritiesDatabase.Implements
                         Id = rec.Id,
                         Status = rec.Status,
                         Sum = (decimal)rec.Sum,
-                        BagSecurities = rec.BagSecurities.ToDictionary(recD => recD.SecuritiesId, recD => (recD.Securities?.Name, recD.Sum))
+                        BagSecurities = rec.BagSecurities.ToDictionary(recD => recD.SecuritiesId, recD => (recD.Securities?.Name, recD.Count, recD.Sum))
                     }).ToList();
             }
         }
@@ -70,7 +70,7 @@ namespace SecuritiesDatabase.Implements
                     Id = bag.Id,
                     Status = bag.Status,
                     Sum = (decimal)bag.Sum,
-                    BagSecurities = bag.BagSecurities.ToDictionary(recD => recD.SecuritiesId, recD => (recD.Securities?.Name, recD.Sum))
+                    BagSecurities = bag.BagSecurities.ToDictionary(recD => recD.SecuritiesId, recD => (recD.Securities?.Name, recD.Count, recD.Sum))
                 } : null;
             }
         }
@@ -169,7 +169,8 @@ namespace SecuritiesDatabase.Implements
 
                 foreach (var updateDetail in BagSecurities)
                 {
-                    updateDetail.Sum = model.BagSecurities[(int)updateDetail.SecuritiesId].Item2;
+                    updateDetail.Count = model.BagSecurities[(int)updateDetail.SecuritiesId].Item2;
+                    updateDetail.Sum = model.BagSecurities[(int)updateDetail.SecuritiesId].Item3;
                     model.BagSecurities.Remove((int)updateDetail.SecuritiesId);
                 }
 
@@ -182,7 +183,8 @@ namespace SecuritiesDatabase.Implements
                 {
                     BagId = bag.Id,
                     SecuritiesId = ed.Key,
-                    Sum = ed.Value.Item2
+                    Count = ed.Value.Item2,
+                    Sum = ed.Value.Item3
                 });
 
                 context.SaveChanges();

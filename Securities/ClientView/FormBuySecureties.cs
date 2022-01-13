@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Securities
+namespace Securities.ClientView
 {
-    public partial class MainFormClient : Form
+    public partial class FormBuySecureties : Form
     {
-        public MainFormClient()
+        public FormBuySecureties()
         {
             InitializeComponent();
         }
