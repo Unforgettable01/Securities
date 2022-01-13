@@ -175,7 +175,8 @@ namespace Securities
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.dataGridViewAgents);
             this.Name = "FormClients";
-            this.Text = "FormClients";
+            this.Text = "Клиенты";
+            this.Load += new System.EventHandler(this.FormClients_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAgents)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

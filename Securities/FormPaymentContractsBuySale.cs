@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Securities
 {
-    public partial class FromPaymentContractsBuySale : Form
+    public partial class FormPaymentContractsBuySale : Form
     {
-        public FromPaymentContractsBuySale()
+        public FormPaymentContractsBuySale()
         {
             InitializeComponent();
         }

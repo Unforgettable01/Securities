@@ -17,14 +17,14 @@ namespace Securities
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
-        private readonly AgentBusinessLogic _emitentBusinesslogic;
+        private readonly AgentBusinessLogic _agentBusinesslogic;
         AgentViewModel view;
         public int Id { set { id = value; } }
         private int? id;
-        public FormAgents(AgentBusinessLogic emitentBusinesslogic)
+        public FormAgents(AgentBusinessLogic agentBusinesslogic)
         {
             InitializeComponent();
-            _emitentBusinesslogic = emitentBusinesslogic;
+            _agentBusinesslogic = agentBusinesslogic;
         }
 
         private void FormAgents_Load(object sender, EventArgs e)
@@ -36,7 +36,7 @@ namespace Securities
         {
             try
             {
-                var list = _emitentBusinesslogic.Read(null);
+                var list = _agentBusinesslogic.Read(null);
                 if (list != null)
                 {
                     dataGridViewAgents.DataSource = list;
