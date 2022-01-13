@@ -37,12 +37,6 @@ namespace Securities
             currentContainer.RegisterType<IAgentStorage, AgentStorage>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<AgentBusinessLogic>(new HierarchicalLifetimeManager());
 
-            currentContainer.RegisterType<IBagStorage, BagStorage>(new HierarchicalLifetimeManager());
-            currentContainer.RegisterType<BagBusinessLogic>(new HierarchicalLifetimeManager());
-
-            currentContainer.RegisterType<ISecurityStorage, SecurityStorage>(new HierarchicalLifetimeManager());
-            currentContainer.RegisterType<SecurityBusinessLogic>(new HierarchicalLifetimeManager());
-
             return currentContainer;
         }
         }
