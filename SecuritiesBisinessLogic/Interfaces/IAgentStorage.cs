@@ -11,6 +11,7 @@ namespace SecuritiesBusinessLogic.Interfaces
         List<AgentViewModel> GetFullList();
         List<AgentViewModel> GetFilteredList(AgentBindingModel model);
         AgentViewModel GetElement(AgentBindingModel model);
+        AgentViewModel GetAgentLP(AgentBindingModel model);
         void Insert(AgentBindingModel model);
         void Update(AgentBindingModel model);
         void Delete(AgentBindingModel model);

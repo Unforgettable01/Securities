@@ -25,6 +25,10 @@ namespace SecuritiesBusinessLogic.BusinessLogics
             }
             return _clientStorage.GetFilteredList(model);
         }
+        public List<ClientViewModel> GetClientLP(ClientBindingModel model)
+        {
+            return new List<ClientViewModel> { _clientStorage.GetClientLP(model) };
+        }
         public void Create(ClientBindingModel model)
         {
             var element = _clientStorage.GetElement(new ClientBindingModel

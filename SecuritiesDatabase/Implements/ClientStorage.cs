@@ -42,7 +42,22 @@ namespace SecuritiesDatabase.Implements
             using (var context = new securitiesdbContext())
             {
                 var client = context.Client
-                .FirstOrDefault(rec => rec.Id == model.Id);
+                .FirstOrDefault(rec => (rec.Id == model.Id) || (rec.Login == model.ClientLogin && rec.Password == model.ClientPassword));
+                return client != null ?
+                CreateModel(client) : null;
+            }
+        }
+
+        public ClientViewModel GetClientLP(ClientBindingModel model)
+        {
+            if (model == null)
+            {
+                return null;
+            }
+            using (var context = new securitiesdbContext())
+            {
+                var client = context.Client
+                .FirstOrDefault(rec => rec.Login == model.ClientLogin && rec.Password == model.ClientPassword);
                 return client != null ?
                 CreateModel(client) : null;
             }

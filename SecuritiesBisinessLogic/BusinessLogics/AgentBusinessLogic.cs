@@ -25,6 +25,10 @@ namespace SecuritiesBusinessLogic.BusinessLogics
             }
             return _agentStorage.GetFilteredList(model);
         }
+        public List<AgentViewModel> GetAgentLP(AgentBindingModel model)
+        {
+            return new List<AgentViewModel> { _agentStorage.GetAgentLP(model) };
+        }
         public void Create(AgentBindingModel model)
         {
             var element = _agentStorage.GetElement(new AgentBindingModel
