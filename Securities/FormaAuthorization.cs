@@ -36,37 +36,29 @@ namespace Securities
                MessageBoxIcon.Error);
                 return;
             }
-
-            try
+            var client = _clientlogic.GetClientLP(new ClientBindingModel
             {
-                var client = _clientlogic.GetClientLP(new ClientBindingModel
-                     {
-                         ClientLogin = textBoxLogin.Text,
-                         ClientPassword = textBoxPassword.Text
-                     })?[0];
-                var agent = _agentlogic.GetAgentLP(new AgentBindingModel
-                {
-                    AgentLogin = textBoxLogin.Text,
-                    AgentPassword = textBoxPassword.Text
-                })?[0];
-                if (client != null)
-                {
-                    var form = Container.Resolve<MainFormAgent>();
-                    form.ShowDialog();
-                }
-                else if (agent != null)
-                {
-                    var form = Container.Resolve<MainFormClient>();
-                    form.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("Пользователь не найден, зарегистрируйтесь", "Ошибка",MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                ClientLogin = textBoxLogin.Text,
+                ClientPassword = textBoxPassword.Text
+            })?[0];
+            var agent = _agentlogic.GetAgentLP(new AgentBindingModel
+            {
+                AgentLogin = textBoxLogin.Text,
+                AgentPassword = textBoxPassword.Text
+            })?[0];
+            if (client != null)
+            {
+                var form = Container.Resolve<MainFormAgent>();
+                form.ShowDialog();
             }
-            catch (Exception ex)
+            else if (agent != null)
             {
-                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                var form = Container.Resolve<MainFormClient>();
+                form.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Пользователь не найден, зарегистрируйтесь", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
