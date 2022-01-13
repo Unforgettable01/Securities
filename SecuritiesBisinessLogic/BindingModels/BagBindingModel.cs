@@ -9,6 +9,6 @@ namespace SecuritiesBusinessLogic.BindingModels
         public int? Id { get; set; }
         public decimal Sum { get; set; }
         public string Status { get; set; }
-        public Dictionary<int?, (string, decimal?)> BagSecurities { get; set; }
+        public Dictionary<int?, (string, int?, decimal?)> BagSecurities { get; set; }
     }
 }

@@ -147,6 +147,48 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientView\FormBag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientView\FormBag.Designer.cs">
+      <DependentUpon>FormBag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientView\FormBags.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientView\FormBags.Designer.cs">
+      <DependentUpon>FormBags.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientView\FormBuySecureties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientView\FormBuySecureties.Designer.cs">
+      <DependentUpon>FormBuySecureties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientView\FormContractBuySale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientView\FormContractBuySale.Designer.cs">
+      <DependentUpon>FormContractBuySale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientView\FormEmitenty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientView\FormEmitenty.Designer.cs">
+      <DependentUpon>FormEmitenty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientView\FormPaymentContractBuySale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientView\FormPaymentContractBuySale.Designer.cs">
+      <DependentUpon>FormPaymentContractBuySale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientView\FormRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientView\FormRequest.Designer.cs">
+      <DependentUpon>FormRequest.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormaAuthorization.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,60 +243,39 @@
     <Compile Include="FormSecurities.Designer.cs">
       <DependentUpon>FormSecurities.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPaymentContractsBuySale.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormPaymentContractsBuySale.Designer.cs">
-      <DependentUpon>FormPaymentContractsBuySale.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainFormAgent.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainFormAgent.Designer.cs">
       <DependentUpon>MainFormAgent.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFormClient.cs">
+    <Compile Include="ClientView\MainFormClient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainFormClient.Designer.cs">
+    <Compile Include="ClientView\MainFormClient.Designer.cs">
       <DependentUpon>MainFormClient.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ClientView\FormBag.resx">
+      <DependentUpon>FormBag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientView\FormBags.resx">
+      <DependentUpon>FormBags.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormaAuthorization.resx">
       <DependentUpon>FormaAuthorization.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAgents.resx">
       <DependentUpon>FormAgents.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormClients.resx">
-      <DependentUpon>FormClients.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormContractsBuy.resx">
-      <DependentUpon>FormContractsBuy.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormContractsBuySale.resx">
-      <DependentUpon>FormContractsBuySale.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormEmitents.resx">
       <DependentUpon>FormEmitents.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormPaymentContractsBuy.resx">
-      <DependentUpon>FormPaymentContractsBuy.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormPaymentContractsBuySale.resx">
-      <DependentUpon>FormPaymentContractsBuySale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRegistration.resx">
       <DependentUpon>FormRegistration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSecurities.resx">
-      <DependentUpon>FormSecurities.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainFormAgent.resx">
-      <DependentUpon>MainFormAgent.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainFormClient.resx">
+    <EmbeddedResource Include="ClientView\MainFormClient.resx">
       <DependentUpon>MainFormClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -290,6 +311,7 @@
       <Name>SecuritiesDatabase</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

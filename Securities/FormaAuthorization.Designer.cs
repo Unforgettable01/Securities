@@ -101,6 +101,7 @@ namespace Securities
             this.Controls.Add(this.labelLogin);
             this.Controls.Add(this.buttonEnterSystem);
             this.Name = "FormaAuthorization";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Авторизация";
             this.ResumeLayout(false);
             this.PerformLayout();

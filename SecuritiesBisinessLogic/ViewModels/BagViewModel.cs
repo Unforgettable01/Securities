@@ -8,12 +8,13 @@ namespace SecuritiesBusinessLogic.ViewModels
 {
     public class BagViewModel
     {
+        [DisplayName("Номер")]
         public int Id { get; set; }
-        [DisplayName("Сумма")]
+        [DisplayName("Стоимость")]
         public decimal Sum { get; set; }
         [DisplayName("Статус")]
         public string Status { get; set; }
         [DataMember]
-        public Dictionary<int?, (string, decimal?)> BagSecurities { get; set; }
+        public Dictionary<int?, (string, int?, decimal?)> BagSecurities { get; set; }
     }
 }
