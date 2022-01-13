@@ -31,6 +31,9 @@ namespace Securities
             currentContainer.RegisterType<IEmitentStorage, EmitentStorage>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<EmitentBusinessLogic>(new HierarchicalLifetimeManager());
 
+            currentContainer.RegisterType<IClientStorage, ClientStorage>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<ClientBusinessLogic>(new HierarchicalLifetimeManager());
+
 
 
             return currentContainer;

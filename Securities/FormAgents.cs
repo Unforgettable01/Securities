@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SecuritiesBusinessLogic.BusinessLogics;
+using SecuritiesBusinessLogic.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,11 +17,37 @@ namespace Securities
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
-        public FormAgents()
+        private readonly AgentBusinessLogic _emitentBusinesslogic;
+        AgentViewModel view;
+        public int Id { set { id = value; } }
+        private int? id;
+        public FormAgents(AgentBusinessLogic emitentBusinesslogic)
         {
             InitializeComponent();
+            _emitentBusinesslogic = emitentBusinesslogic;
         }
 
+        private void FormAgents_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            try
+            {
+                var list = _emitentBusinesslogic.Read(null);
+                if (list != null)
+                {
+                    dataGridViewAgents.DataSource = list;
+                    dataGridViewAgents.Columns[0].Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void buttonSave_Click(object sender, EventArgs e)
         {
 

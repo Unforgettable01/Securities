@@ -101,9 +101,9 @@ namespace Securities
             this.labelName.AutoSize = true;
             this.labelName.Location = new System.Drawing.Point(143, 113);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(67, 20);
+            this.labelName.Size = new System.Drawing.Size(47, 20);
             this.labelName.TabIndex = 11;
-            this.labelName.Text = "Пароль";
+            this.labelName.Text = "ФИО";
             // 
             // labelPassportNumber
             // 
