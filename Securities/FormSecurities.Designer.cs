@@ -49,66 +49,75 @@ namespace Securities
             // 
             this.dataGridViewSecurities.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridViewSecurities.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSecurities.Location = new System.Drawing.Point(13, 13);
+            this.dataGridViewSecurities.Location = new System.Drawing.Point(9, 8);
+            this.dataGridViewSecurities.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewSecurities.Name = "dataGridViewSecurities";
             this.dataGridViewSecurities.RowHeadersWidth = 62;
             this.dataGridViewSecurities.RowTemplate.Height = 28;
-            this.dataGridViewSecurities.Size = new System.Drawing.Size(1055, 589);
+            this.dataGridViewSecurities.Size = new System.Drawing.Size(703, 383);
             this.dataGridViewSecurities.TabIndex = 0;
+            this.dataGridViewSecurities.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dataGridViewSecurities_RowStateChanged);
             // 
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(1074, 31);
+            this.labelName.Location = new System.Drawing.Point(716, 20);
+            this.labelName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(122, 20);
+            this.labelName.Size = new System.Drawing.Size(83, 13);
             this.labelName.TabIndex = 1;
             this.labelName.Text = "Наименование";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1074, 69);
+            this.label1.Location = new System.Drawing.Point(716, 45);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 20);
+            this.label1.Size = new System.Drawing.Size(77, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Цена закупки";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1074, 111);
+            this.label2.Location = new System.Drawing.Point(716, 72);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 20);
+            this.label2.Size = new System.Drawing.Size(80, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Цена продажи";
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(1216, 31);
+            this.textBoxName.Location = new System.Drawing.Point(811, 20);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(250, 26);
+            this.textBoxName.Size = new System.Drawing.Size(168, 20);
             this.textBoxName.TabIndex = 4;
             // 
             // textBoxSalePrice
             // 
-            this.textBoxSalePrice.Location = new System.Drawing.Point(1216, 111);
+            this.textBoxSalePrice.Location = new System.Drawing.Point(811, 72);
+            this.textBoxSalePrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxSalePrice.Name = "textBoxSalePrice";
-            this.textBoxSalePrice.Size = new System.Drawing.Size(250, 26);
+            this.textBoxSalePrice.Size = new System.Drawing.Size(168, 20);
             this.textBoxSalePrice.TabIndex = 5;
             // 
             // textBoxBuyPrice
             // 
-            this.textBoxBuyPrice.Location = new System.Drawing.Point(1216, 69);
+            this.textBoxBuyPrice.Location = new System.Drawing.Point(811, 45);
+            this.textBoxBuyPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxBuyPrice.Name = "textBoxBuyPrice";
-            this.textBoxBuyPrice.Size = new System.Drawing.Size(250, 26);
+            this.textBoxBuyPrice.Size = new System.Drawing.Size(168, 20);
             this.textBoxBuyPrice.TabIndex = 6;
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(1216, 239);
+            this.buttonSave.Location = new System.Drawing.Point(811, 155);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(132, 54);
+            this.buttonSave.Size = new System.Drawing.Size(88, 35);
             this.buttonSave.TabIndex = 7;
             this.buttonSave.Text = "Добавить";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -116,53 +125,61 @@ namespace Securities
             // 
             // buttonUpdate
             // 
-            this.buttonUpdate.Location = new System.Drawing.Point(1216, 305);
+            this.buttonUpdate.Location = new System.Drawing.Point(811, 198);
+            this.buttonUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(132, 54);
+            this.buttonUpdate.Size = new System.Drawing.Size(88, 35);
             this.buttonUpdate.TabIndex = 8;
             this.buttonUpdate.Text = "Изменить";
             this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // buttonRefresh
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(1216, 381);
+            this.buttonRefresh.Location = new System.Drawing.Point(811, 248);
+            this.buttonRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(132, 54);
+            this.buttonRefresh.Size = new System.Drawing.Size(88, 35);
             this.buttonRefresh.TabIndex = 9;
             this.buttonRefresh.Text = "Обновить";
             this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(1216, 458);
+            this.buttonDelete.Location = new System.Drawing.Point(811, 298);
+            this.buttonDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(132, 54);
+            this.buttonDelete.Size = new System.Drawing.Size(88, 35);
             this.buttonDelete.TabIndex = 10;
             this.buttonDelete.Text = "Удалить";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // labelEmitent
             // 
             this.labelEmitent.AutoSize = true;
-            this.labelEmitent.Location = new System.Drawing.Point(1077, 161);
+            this.labelEmitent.Location = new System.Drawing.Point(718, 105);
+            this.labelEmitent.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEmitent.Name = "labelEmitent";
-            this.labelEmitent.Size = new System.Drawing.Size(77, 20);
+            this.labelEmitent.Size = new System.Drawing.Size(50, 13);
             this.labelEmitent.TabIndex = 11;
             this.labelEmitent.Text = "Эмитент";
             // 
             // comboBoxEmitents
             // 
             this.comboBoxEmitents.FormattingEnabled = true;
-            this.comboBoxEmitents.Location = new System.Drawing.Point(1216, 161);
+            this.comboBoxEmitents.Location = new System.Drawing.Point(811, 105);
+            this.comboBoxEmitents.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxEmitents.Name = "comboBoxEmitents";
-            this.comboBoxEmitents.Size = new System.Drawing.Size(250, 28);
+            this.comboBoxEmitents.Size = new System.Drawing.Size(168, 21);
             this.comboBoxEmitents.TabIndex = 12;
             // 
             // FormSecurities
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1503, 627);
+            this.ClientSize = new System.Drawing.Size(1002, 408);
             this.Controls.Add(this.comboBoxEmitents);
             this.Controls.Add(this.labelEmitent);
             this.Controls.Add(this.buttonDelete);
@@ -176,6 +193,7 @@ namespace Securities
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.dataGridViewSecurities);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormSecurities";
             this.Text = "Ценные бумаги";
             this.Load += new System.EventHandler(this.FormSecuritiess_Load);

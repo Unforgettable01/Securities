@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unity;
@@ -63,56 +64,142 @@ namespace Securities
         }
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            //if (string.IsNullOrEmpty(textBoxName.Text))
-            //{
-            //    MessageBox.Show("Заполните ФИО", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-            //if (!Regex.IsMatch(textBoxName.Text, @"[А-Я][а-я]+\s[А-Я]+[.]+[А-Я]+[.]"))
-            //{
-            //    MessageBox.Show("Необходимо проверить правильность ФИО", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-            //if (string.IsNullOrEmpty(textBoxLogin.Text))
-            //{
-            //    MessageBox.Show("Заполните логин", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-            //if (string.IsNullOrEmpty(textBoxPassword.Text))
-            //{
-            //    MessageBox.Show("Заполните пароль", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-
-            //if (string.IsNullOrEmpty(textBoxPassportNumber.Text))
-            //{
-            //    MessageBox.Show("Заполните номер паспорта", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-            //if (!Regex.IsMatch(textBoxPassportNumber.Text, @"[0-9]{10}"))
-            //{
-            //    MessageBox.Show("Необходимо проверить правильность вводимого номера паспорта (должны быть только цифры)", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-            try
+            if (CheckValidate())
             {
-                _securitiesBusinesslogic.Create(new SecurityBindingModel
+                try
                 {
-                    BuyPrice = Convert.ToDecimal(textBoxBuyPrice.Text),
-                    SalePrice = Convert.ToDecimal(textBoxSalePrice.Text),
-                    Name = textBoxName.Text,
-                    EmitentId = Convert.ToInt32(comboBoxEmitents.SelectedValue)
-                }); ;
-                MessageBox.Show("Сохранение прошло успешно", "Сообщение",
-               MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _securitiesBusinesslogic.Create(new SecurityBindingModel
+                    {
+                        BuyPrice = Convert.ToDecimal(textBoxBuyPrice.Text),
+                        SalePrice = Convert.ToDecimal(textBoxSalePrice.Text),
+                        Name = textBoxName.Text,
+                        EmitentId = Convert.ToInt32(comboBoxEmitents.SelectedValue)
+                    }); ;
+                    MessageBox.Show("Сохранение прошло успешно", "Сообщение",
+                   MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
+                }
+                textBoxBuyPrice.Clear();
+                textBoxSalePrice.Clear();
+                textBoxName.Clear();
+                comboBoxEmitents.SelectedIndex = -1;
+                LoadData();
             }
-            catch (Exception ex)
+        }
+        private bool CheckValidate()
+        {
+            if (string.IsNullOrEmpty(textBoxBuyPrice.Text))
             {
-                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
-               MessageBoxIcon.Error);
+                MessageBox.Show("Заполните цену покупки", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
+            if (!Regex.IsMatch(textBoxBuyPrice.Text, @"[0-9]+[,]+[0-9]{2}"))
+            {
+                MessageBox.Show("Необходимо проверить правильность цены покупки (поличтельное число + 2 цифры после запятой)", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (string.IsNullOrEmpty(textBoxSalePrice.Text))
+            {
+                MessageBox.Show("Заполните цену продажи", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (!Regex.IsMatch(textBoxSalePrice.Text, @"[0-9]+[,]+[0-9]{2}"))
+            {
+                MessageBox.Show("Необходимо проверить правильность цены продажи (поличтельное число + 2 цифры после запятой)", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (string.IsNullOrEmpty(textBoxName.Text))
+            {
+                MessageBox.Show("Заполните наименование", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(comboBoxEmitents.Text))
+            {
+                MessageBox.Show("Необходимо выбрать эмитента", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
             LoadData();
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewSecurities.SelectedRows.Count == 1)
+            {
+                if (MessageBox.Show("Удалить запись", "Вопрос", MessageBoxButtons.YesNo,
+               MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int id = Convert.ToInt32(dataGridViewSecurities.SelectedRows[0].Cells[0].Value);
+                    try
+                    {
+                        _securitiesBusinesslogic.Delete(new SecurityBindingModel { Id = id });
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
+                       MessageBoxIcon.Error);
+                    }
+                    LoadData();
+                }
+            }
+        }
+
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+            if (CheckValidate())
+            {
+                int id = Convert.ToInt32(dataGridViewSecurities.SelectedRows[0].Cells[0].Value);
+                try
+                {
+                    _securitiesBusinesslogic.Create(new SecurityBindingModel
+                    {
+                        Id = id,
+                        BuyPrice = Convert.ToDecimal(textBoxBuyPrice.Text),
+                        SalePrice = Convert.ToDecimal(textBoxSalePrice.Text),
+                        Name = textBoxName.Text,
+                        EmitentId = Convert.ToInt32(comboBoxEmitents.SelectedValue)
+                    });
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
+                }
+                textBoxBuyPrice.Clear();
+                textBoxSalePrice.Clear();
+                textBoxName.Clear();
+                comboBoxEmitents.SelectedIndex = -1;
+                LoadData();
+            }
+        }
+        public void FormEmitentName()
+        {
+            var viewSecurities = _securitiesBusinesslogic.Read(new SecurityBindingModel { Id = Convert.ToInt32(dataGridViewSecurities.SelectedRows[0].Cells[0].Value) })?[0];
+            var viewEmitent = _emitentBusinesslogic.Read(new EmitentBindingModel { Id = Convert.ToInt32(viewSecurities.EmitentName) })?[0];
+            if (viewEmitent != null)
+            {
+                comboBoxEmitents.Text = viewEmitent.EmitentName;
+            }
+        }
+        private void dataGridViewSecurities_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            if (dataGridViewSecurities.SelectedRows.Count != 0)
+            {
+                textBoxBuyPrice.Text = dataGridViewSecurities.SelectedRows[0].Cells[1].Value.ToString();
+                textBoxSalePrice.Text = dataGridViewSecurities.SelectedRows[0].Cells[2].Value.ToString();
+                FormEmitentName();
+                textBoxName.Text = dataGridViewSecurities.SelectedRows[0].Cells[4].Value.ToString();
+            }
         }
     }
 }

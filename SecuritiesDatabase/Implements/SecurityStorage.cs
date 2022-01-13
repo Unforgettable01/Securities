@@ -60,7 +60,7 @@ namespace SecuritiesDatabase.Implements
                     Name = security.Name,
                     BuyPrice = (decimal)security.BuyPrice,
                     SalePrice = (decimal)security.SalePrice,
-                    EmitentName = security.Emitent.Name
+                    EmitentName = Convert.ToString(security.EmitentId)
                 } : null;
             }
         }
