@@ -15,15 +15,15 @@ namespace SecuritiesDatabase.Implements
             using (var context = new securitiesdbContext())
             {
                 return context.Request
-                    .Include(rec => rec.Client)
                     .Include(rec => rec.Agent)
                     .Include(rec => rec.Bag)
+                    .ThenInclude(rec => rec.Client)
                     .ToList().Select(rec => new RequestViewModel
                     {
                         Id = rec.Id,
                         RequestDate = (DateTime)rec.Date,
                         RequestSum = (decimal)rec.Sum,
-                        ClientName = rec.Client.Fio,
+                        ClientName = rec.Bag.Client.Fio,
                         AgentName = rec.Agent.Fio,
                         BagId = rec.Bag.Id
                     }).ToList();
@@ -39,16 +39,16 @@ namespace SecuritiesDatabase.Implements
             using (var context = new securitiesdbContext())
             {
                 return context.Request
-                    .Include(rec => rec.Client)
                     .Include(rec => rec.Agent)
                     .Include(rec => rec.Bag)
+                    .ThenInclude(rec => rec.Client)
                     .Where(rec => rec.Id.Equals(model.Id)).ToList()
                     .Select(rec => new RequestViewModel
                     {
                         Id = rec.Id,
                         RequestDate = (DateTime)rec.Date,
                         RequestSum = (decimal)rec.Sum,
-                        ClientName = rec.Client.Fio,
+                        ClientName = rec.Bag.Client.Fio,
                         AgentName = rec.Agent.Fio,
                         BagId = rec.Bag.Id
                     }).ToList();
@@ -65,9 +65,9 @@ namespace SecuritiesDatabase.Implements
             using (var context = new securitiesdbContext())
             {
                 var request = context.Request
-                    .Include(rec => rec.Client)
                     .Include(rec => rec.Agent)
                     .Include(rec => rec.Bag)
+                    .ThenInclude(rec => rec.Client)
                     .FirstOrDefault(rec => rec.Id == model.Id);
                 return request != null ?
                 new RequestViewModel
@@ -75,7 +75,7 @@ namespace SecuritiesDatabase.Implements
                     Id = request.Id,
                     RequestDate = (DateTime)request.Date,
                     RequestSum = (decimal)request.Sum,
-                    ClientName = request.Client.Fio,
+                    ClientName = request.Bag.Client.Fio,
                     AgentName = request.Agent.Fio,
                     BagId = request.Bag.Id
                 } : null;
@@ -154,7 +154,6 @@ namespace SecuritiesDatabase.Implements
         {
             request.Date = model.RequestDate;
             request.Sum = model.RequestSum;
-            request.ClientId = model.ClientId;
             request.AgentId = model.AgentId;
             request.BagId = model.BagId;
 

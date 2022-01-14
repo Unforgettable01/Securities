@@ -22,6 +22,7 @@ namespace SecuritiesDatabase.Implements
                         Id = rec.Id,
                         Status = rec.Status,
                         Sum = (decimal)rec.Sum,
+                        ClientId = rec.Client.Id,
                         BagSecurities = rec.BagSecurities
                     .ToDictionary(recD => recD.SecuritiesId,
                     recD => (recD.Securities?.Name, recD.Count, recD.Sum))
@@ -46,6 +47,7 @@ namespace SecuritiesDatabase.Implements
                         Id = rec.Id,
                         Status = rec.Status,
                         Sum = (decimal)rec.Sum,
+                        ClientId = rec.Client.Id,
                         BagSecurities = rec.BagSecurities.ToDictionary(recD => recD.SecuritiesId, recD => (recD.Securities?.Name, recD.Count, recD.Sum))
                     }).ToList();
             }
@@ -70,6 +72,7 @@ namespace SecuritiesDatabase.Implements
                     Id = bag.Id,
                     Status = bag.Status,
                     Sum = (decimal)bag.Sum,
+                    ClientId = bag.Client.Id,
                     BagSecurities = bag.BagSecurities.ToDictionary(recD => recD.SecuritiesId, recD => (recD.Securities?.Name, recD.Count, recD.Sum))
                 } : null;
             }
@@ -147,6 +150,7 @@ namespace SecuritiesDatabase.Implements
         {
             bag.Status = model.Status;
             bag.Sum = model.Sum;
+            bag.ClientId = model.ClientId;
 
             if (bag.Id == 0)
             {

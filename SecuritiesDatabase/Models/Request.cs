@@ -18,13 +18,11 @@ namespace SecuritiesDatabase
         public int Id { get; set; }
         public DateTime? Date { get; set; }
         public decimal? Sum { get; set; }
-        public int? ClientId { get; set; }
         public int? AgentId { get; set; }
         public int? BagId { get; set; }
 
         public virtual Agent Agent { get; set; }
         public virtual Bag Bag { get; set; }
-        public virtual Client Client { get; set; }
         public virtual ICollection<ContractBuy> ContractBuy { get; set; }
         public virtual ICollection<ContractBuySale> ContractBuySale { get; set; }
     }

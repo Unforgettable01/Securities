@@ -71,6 +71,8 @@ namespace SecuritiesDatabase
                     .HasIdentityOptions(null, null, null, 1000000L, null, null)
                     .UseIdentityAlwaysColumn();
 
+                entity.Property(e => e.ClientId).HasColumnName("clientId");
+
                 entity.Property(e => e.Status)
                     .HasColumnName("status")
                     .HasColumnType("character varying");
@@ -78,6 +80,12 @@ namespace SecuritiesDatabase
                 entity.Property(e => e.Sum)
                     .HasColumnName("sum")
                     .HasColumnType("money");
+
+                entity.HasOne(d => d.Client)
+                    .WithMany(p => p.Bag)
+                    .HasForeignKey(d => d.ClientId)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("clientId");
             });
 
             modelBuilder.Entity<BagSecurities>(entity =>
@@ -269,8 +277,6 @@ namespace SecuritiesDatabase
 
                 entity.Property(e => e.BagId).HasColumnName("bagId");
 
-                entity.Property(e => e.ClientId).HasColumnName("clientId");
-
                 entity.Property(e => e.Date)
                     .HasColumnName("date")
                     .HasColumnType("date");
@@ -290,12 +296,6 @@ namespace SecuritiesDatabase
                     .HasForeignKey(d => d.BagId)
                     .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("bagId");
-
-                entity.HasOne(d => d.Client)
-                    .WithMany(p => p.Request)
-                    .HasForeignKey(d => d.ClientId)
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .HasConstraintName("clientId");
             });
 
             modelBuilder.Entity<Security>(entity =>

@@ -11,7 +11,7 @@ namespace SecuritiesDatabase
     {
         public Client()
         {
-            Request = new HashSet<Request>();
+            Bag = new HashSet<Bag>();
         }
 
         public int Id { get; set; }
@@ -20,6 +20,6 @@ namespace SecuritiesDatabase
         public string Login { get; set; }
         public string Password { get; set; }
 
-        public virtual ICollection<Request> Request { get; set; }
+        public virtual ICollection<Bag> Bag { get; set; }
     }
 }

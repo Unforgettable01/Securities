@@ -18,7 +18,9 @@ namespace SecuritiesDatabase
         public int Id { get; set; }
         public string Status { get; set; }
         public decimal? Sum { get; set; }
+        public int? ClientId { get; set; }
 
+        public virtual Client Client { get; set; }
         public virtual ICollection<BagSecurities> BagSecurities { get; set; }
         public virtual ICollection<Request> Request { get; set; }
     }
