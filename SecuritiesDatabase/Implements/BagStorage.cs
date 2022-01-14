@@ -41,7 +41,7 @@ namespace SecuritiesDatabase.Implements
                 return context.Bag
                     .Include(rec => rec.BagSecurities)
                     .ThenInclude(rec => rec.Securities)
-                    .Where(rec => rec.Id.Equals(model.Id)).ToList()
+                    .Where(rec => (rec.Id.Equals(model.Id)) || (rec.ClientId == model.ClientId && rec.Status == model.Status)).ToList()
                     .Select(rec => new BagViewModel
                     {
                         Id = rec.Id,

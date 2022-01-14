@@ -76,9 +76,32 @@ namespace SecuritiesDatabase.Implements
                     RequestDate = (DateTime)request.Date,
                     RequestSum = (decimal)request.Sum,
                     ClientName = request.Bag.Client.Fio,
-                    AgentName = request.Agent.Fio,
+                    AgentName = request.AgentId.HasValue ?
+                        request.Agent.Fio : string.Empty,
                     BagId = request.Bag.Id
                 } : null;
+            }
+        }
+
+        public List<RequestViewModel> GetFilteredRequestClient(int Id)
+        {
+            using (var context = new securitiesdbContext())
+            {
+                return context.Request
+                    .Include(rec => rec.Agent)
+                    .Include(rec => rec.Bag)
+                    .ThenInclude(rec => rec.Client)
+                    .Where(rec => rec.Bag.ClientId == Id).ToList()
+                    .Select(rec => new RequestViewModel
+                    {
+                        Id = rec.Id,
+                        RequestDate = (DateTime)rec.Date,
+                        RequestSum = (decimal)rec.Sum,
+                        ClientName = rec.Bag.Client.Fio,
+                        AgentName = rec.AgentId.HasValue ?
+                        rec.Agent.Fio : string.Empty,
+                        BagId = rec.Bag.Id
+                    }).ToList();
             }
         }
 
@@ -86,20 +109,8 @@ namespace SecuritiesDatabase.Implements
         {
             using (var context = new securitiesdbContext())
             {
-                using (var transaction = context.Database.BeginTransaction())
-                {
-                    try
-                    {
-                        CreateModel(model, new Request(), context);
-                        context.SaveChanges();
-                        transaction.Commit();
-                    }
-                    catch
-                    {
-                        transaction.Rollback();
-                        throw;
-                    }
-                }
+                context.Request.Add(CreateModel(model, new Request()));
+                context.SaveChanges();
             }
         }
 
@@ -107,29 +118,13 @@ namespace SecuritiesDatabase.Implements
         {
             using (var context = new securitiesdbContext())
             {
-                using (var transaction = context.Database.BeginTransaction())
+                Request request = context.Request.FirstOrDefault(rec => rec.Id == model.Id);
+                if (request == null)
                 {
-                    try
-                    {
-                        var element = context.Request.FirstOrDefault(rec => rec.Id == model.Id);
-
-                        if (element == null)
-                        {
-                            throw new Exception("Элемент не найден");
-                        }
-
-                        CreateModel(model, element, context);
-                        context.SaveChanges();
-
-                        transaction.Commit();
-                    }
-                    catch
-                    {
-                        transaction.Rollback();
-
-                        throw;
-                    }
+                    throw new Exception("Элемент не найден");
                 }
+                CreateModel(model, request);
+                context.SaveChanges();
             }
         }
 
@@ -150,11 +145,10 @@ namespace SecuritiesDatabase.Implements
             }
         }
 
-        private Request CreateModel(RequestBindingModel model, Request request, securitiesdbContext context)
+        private Request CreateModel(RequestBindingModel model, Request request)
         {
             request.Date = model.RequestDate;
             request.Sum = model.RequestSum;
-            request.AgentId = model.AgentId;
             request.BagId = model.BagId;
 
             return request;

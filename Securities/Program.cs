@@ -45,6 +45,9 @@ namespace Securities
             currentContainer.RegisterType<ISecurityStorage, SecurityStorage>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<SecurityBusinessLogic>(new HierarchicalLifetimeManager());
 
+            currentContainer.RegisterType<IRequestStorage, RequestStorage>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<RequestBusinessLogic>(new HierarchicalLifetimeManager());
+
             return currentContainer;
         }
         }
