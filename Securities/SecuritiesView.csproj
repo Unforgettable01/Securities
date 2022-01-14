@@ -147,6 +147,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgentView\FormRequestForAgent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgentView\FormRequestForAgent.Designer.cs">
+      <DependentUpon>FormRequestForAgent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AgentView\Form__Requests__ForAgent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgentView\Form__Requests__ForAgent.Designer.cs">
+      <DependentUpon>Form__Requests__ForAgent.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientView\FormBag.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +269,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AgentView\FormRequestForAgent.resx">
+      <DependentUpon>FormRequestForAgent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AgentView\Form__Requests__ForAgent.resx">
+      <DependentUpon>Form__Requests__ForAgent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientView\FormBag.resx">
       <DependentUpon>FormBag.cs</DependentUpon>
     </EmbeddedResource>
