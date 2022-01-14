@@ -1,5 +1,6 @@
 ﻿using SecuritiesBusinessLogic.BusinessLogics;
 using SecuritiesBusinessLogic.Interfaces;
+using SecuritiesBusinessLogic.ViewModels;
 using SecuritiesDatabase.Implements;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace Securities
 {
     static class Program
     {
+        public static ClientViewModel Client { get; set; }
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>

@@ -10,6 +10,7 @@ namespace SecuritiesBusinessLogic.Interfaces
     {
         List<BagViewModel> GetFullList();
         List<BagViewModel> GetFilteredList(BagBindingModel model);
+        List<BagViewModel> GetFilteredBag(BagBindingModel model);
         BagViewModel GetElement(BagBindingModel model);
         void Insert(BagBindingModel model);
         void Update(BagBindingModel model);

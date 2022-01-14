@@ -22,7 +22,7 @@ namespace SecuritiesDatabase.Implements
                         Id = rec.Id,
                         Status = rec.Status,
                         Sum = (decimal)rec.Sum,
-                        ClientId = rec.Client.Id,
+                        ClientId = (int)rec.ClientId,
                         BagSecurities = rec.BagSecurities
                     .ToDictionary(recD => recD.SecuritiesId,
                     recD => (recD.Securities?.Name, recD.Count, recD.Sum))
@@ -47,7 +47,7 @@ namespace SecuritiesDatabase.Implements
                         Id = rec.Id,
                         Status = rec.Status,
                         Sum = (decimal)rec.Sum,
-                        ClientId = rec.Client.Id,
+                        ClientId = (int)rec.ClientId,
                         BagSecurities = rec.BagSecurities.ToDictionary(recD => recD.SecuritiesId, recD => (recD.Securities?.Name, recD.Count, recD.Sum))
                     }).ToList();
             }
@@ -72,9 +72,32 @@ namespace SecuritiesDatabase.Implements
                     Id = bag.Id,
                     Status = bag.Status,
                     Sum = (decimal)bag.Sum,
-                    ClientId = bag.Client.Id,
+                    ClientId = (int)bag.ClientId,
                     BagSecurities = bag.BagSecurities.ToDictionary(recD => recD.SecuritiesId, recD => (recD.Securities?.Name, recD.Count, recD.Sum))
                 } : null;
+            }
+        }
+
+        public List<BagViewModel> GetFilteredBag(BagBindingModel model)
+        {
+            if (model == null)
+            {
+                return null;
+            }
+            using (var context = new securitiesdbContext())
+            {
+                return context.Bag
+                    .Include(rec => rec.BagSecurities)
+                    .ThenInclude(rec => rec.Securities)
+                    .Where(rec => rec.ClientId == model.ClientId).ToList()
+                    .Select(rec => new BagViewModel
+                    {
+                        Id = rec.Id,
+                        Status = rec.Status,
+                        Sum = (decimal)rec.Sum,
+                        ClientId = (int)rec.ClientId,
+                        BagSecurities = rec.BagSecurities.ToDictionary(recD => recD.SecuritiesId, recD => (recD.Securities?.Name, recD.Count, recD.Sum))
+                    }).ToList();
             }
         }
 

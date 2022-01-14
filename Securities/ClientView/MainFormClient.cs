@@ -1,4 +1,5 @@
 ﻿using Securities.ClientView;
+using SecuritiesBusinessLogic.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,12 +31,6 @@ namespace Securities
         private void приобретенныеЦенныеБумагиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormBuySecureties>();
-            form.ShowDialog();
-        }
-
-        private void эмитентыToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var form = Container.Resolve<FormEmitenty>();
             form.ShowDialog();
         }
 

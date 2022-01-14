@@ -16,6 +16,7 @@ namespace Securities.ClientView
         private readonly BagBusinessLogic _bagBusinesslogic;
         private readonly SecurityBusinessLogic _securityBusinesslogic;
         private int? id;
+
         private Dictionary<int?, (string, int?, decimal?)> bagSecurities;
         public FormBag(BagBusinessLogic bagBusinesslogic, SecurityBusinessLogic securityBusinesslogic)
         {
@@ -34,6 +35,7 @@ namespace Securities.ClientView
                 comboBoxSecurities.DataSource = list;
                 comboBoxSecurities.SelectedItem = null;
             }
+
             if (id.HasValue)
             {
                 try
@@ -161,7 +163,8 @@ namespace Securities.ClientView
                     Id = id,
                     Status = status,
                     Sum = Math.Round(Convert.ToDecimal(textBoxSum.Text), 2),
-                    BagSecurities = bagSecurities
+                    ClientId = Program.Client.Id,
+                BagSecurities = bagSecurities
                 });
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение",
                MessageBoxButtons.OK, MessageBoxIcon.Information);

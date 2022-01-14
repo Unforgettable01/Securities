@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Unity;
 using System.Text.RegularExpressions;
+using Securities.ClientView;
 
 namespace Securities
 {
@@ -49,7 +50,9 @@ namespace Securities
             if (client != null)
             {
                 var form = Container.Resolve<MainFormClient>();
+                Program.Client = client;
                 form.ShowDialog();
+                
             }
             else if (agent != null)
             {

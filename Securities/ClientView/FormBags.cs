@@ -28,7 +28,10 @@ namespace Securities.ClientView
         {
             try
             {
-                List<BagViewModel> list = _bagBusinesslogic.Read(null);
+                List<BagViewModel> list = _bagBusinesslogic.GetFiltredBag(new BagBindingModel
+                {
+                    ClientId = Program.Client.Id
+                });
                 if (list != null)
                 {
                     dataGridViewBags.DataSource = list;
@@ -36,6 +39,7 @@ namespace Securities.ClientView
                     dataGridViewBags.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                     dataGridViewBags.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                     dataGridViewBags.Columns[3].Visible = false;
+                    dataGridViewBags.Columns[4].Visible = false;
                 }
             }
             catch (Exception ex)

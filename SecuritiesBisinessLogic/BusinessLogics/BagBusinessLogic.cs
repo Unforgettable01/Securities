@@ -26,6 +26,10 @@ namespace SecuritiesBusinessLogic.BusinessLogics
             }
             return _bagStorage.GetFilteredList(model);
         }
+        public List<BagViewModel> GetFiltredBag(BagBindingModel model)
+        {
+            return _bagStorage.GetFilteredBag(model);
+        }
         public void Create(BagBindingModel model)
         {
             var element = _bagStorage.GetElement(new BagBindingModel
