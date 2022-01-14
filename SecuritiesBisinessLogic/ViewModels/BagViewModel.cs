@@ -14,6 +14,7 @@ namespace SecuritiesBusinessLogic.ViewModels
         public decimal Sum { get; set; }
         [DisplayName("Статус")]
         public string Status { get; set; }
+        public int ClientId { get; set; }
         [DataMember]
         public Dictionary<int?, (string, int?, decimal?)> BagSecurities { get; set; }
     }
