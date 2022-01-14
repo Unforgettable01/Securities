@@ -165,6 +165,12 @@
     <Compile Include="ClientView\FormBag.Designer.cs">
       <DependentUpon>FormBag.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClientView\FormBagCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientView\FormBagCheck.Designer.cs">
+      <DependentUpon>FormBagCheck.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientView\FormBags.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,8 +281,14 @@
     <EmbeddedResource Include="ClientView\FormBag.resx">
       <DependentUpon>FormBag.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ClientView\FormBagCheck.resx">
+      <DependentUpon>FormBagCheck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientView\FormBags.resx">
       <DependentUpon>FormBags.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientView\FormRequest.resx">
+      <DependentUpon>FormRequest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormaAuthorization.resx">
       <DependentUpon>FormaAuthorization.cs</DependentUpon>

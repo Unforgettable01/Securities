@@ -34,6 +34,7 @@ namespace Securities.ClientView
             this.buttonUpd = new System.Windows.Forms.Button();
             this.buttonDel = new System.Windows.Forms.Button();
             this.buttonRef = new System.Windows.Forms.Button();
+            this.buttonCheck = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBags)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +71,7 @@ namespace Securities.ClientView
             // 
             // buttonDel
             // 
-            this.buttonDel.Location = new System.Drawing.Point(846, 162);
+            this.buttonDel.Location = new System.Drawing.Point(846, 204);
             this.buttonDel.Name = "buttonDel";
             this.buttonDel.Size = new System.Drawing.Size(135, 36);
             this.buttonDel.TabIndex = 3;
@@ -80,7 +81,7 @@ namespace Securities.ClientView
             // 
             // buttonRef
             // 
-            this.buttonRef.Location = new System.Drawing.Point(846, 204);
+            this.buttonRef.Location = new System.Drawing.Point(846, 507);
             this.buttonRef.Name = "buttonRef";
             this.buttonRef.Size = new System.Drawing.Size(135, 36);
             this.buttonRef.TabIndex = 4;
@@ -88,11 +89,22 @@ namespace Securities.ClientView
             this.buttonRef.UseVisualStyleBackColor = true;
             this.buttonRef.Click += new System.EventHandler(this.buttonRef_Click);
             // 
+            // buttonCheck
+            // 
+            this.buttonCheck.Location = new System.Drawing.Point(846, 162);
+            this.buttonCheck.Name = "buttonCheck";
+            this.buttonCheck.Size = new System.Drawing.Size(135, 36);
+            this.buttonCheck.TabIndex = 5;
+            this.buttonCheck.Text = "Посмотреть";
+            this.buttonCheck.UseVisualStyleBackColor = true;
+            this.buttonCheck.Click += new System.EventHandler(this.buttonCheck_Click);
+            // 
             // FormBags
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1011, 555);
+            this.Controls.Add(this.buttonCheck);
             this.Controls.Add(this.buttonRef);
             this.Controls.Add(this.buttonDel);
             this.Controls.Add(this.buttonUpd);
@@ -113,5 +125,6 @@ namespace Securities.ClientView
         private System.Windows.Forms.Button buttonUpd;
         private System.Windows.Forms.Button buttonDel;
         private System.Windows.Forms.Button buttonRef;
+        private System.Windows.Forms.Button buttonCheck;
     }
 }

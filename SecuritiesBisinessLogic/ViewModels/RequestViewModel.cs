@@ -8,6 +8,7 @@ namespace SecuritiesBusinessLogic.ViewModels
 {
     public class RequestViewModel
     {
+        [DisplayName("Номер")]
         public int Id { get; set; }
         [DisplayName("Дата")]
         public DateTime RequestDate { get; set; }

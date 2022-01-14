@@ -61,14 +61,27 @@ namespace Securities.ClientView
         {
             if (dataGridViewBags.SelectedRows.Count == 1)
             {
-                var form = Container.Resolve<FormBag>();
-                if (dataGridViewBags.SelectedRows.Count == 1)
+                int id = Convert.ToInt32(dataGridViewBags.SelectedRows[0].Cells[0].Value);
+                BagViewModel bag = _bagBusinesslogic.Read(new BagBindingModel
                 {
-                    form.Id = Convert.ToInt32(dataGridViewBags.SelectedRows[0].Cells[0].Value);
+                    Id = id
+                })[0];
+                if (bag.Status == "Не куплен")
+                {
+                    var form = Container.Resolve<FormBag>();
+                    if (dataGridViewBags.SelectedRows.Count == 1)
+                    {
+                        form.Id = id;
+                    }
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        LoadData();
+                    }
                 }
-                if (form.ShowDialog() == DialogResult.OK)
+                else
                 {
-                    LoadData();
+                    MessageBox.Show("Нельзя изменить портфель", "Ошибка", MessageBoxButtons.OK,
+                       MessageBoxIcon.Error);
                 }
             }
         }
@@ -98,6 +111,20 @@ namespace Securities.ClientView
         private void buttonRef_Click(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void buttonCheck_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(dataGridViewBags.SelectedRows[0].Cells[0].Value);
+            var form = Container.Resolve<FormBagCheck>();
+            if (dataGridViewBags.SelectedRows.Count == 1)
+            {
+                form.Id = id;
+            }
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                LoadData();
+            }
         }
     }
 }

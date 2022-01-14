@@ -25,6 +25,10 @@ namespace SecuritiesBusinessLogic.BusinessLogics
             }
             return _requestStorage.GetFilteredList(model);
         }
+        public List<RequestViewModel> GetFiltredRequestClient(int Id)
+        {
+            return _requestStorage.GetFilteredRequestClient(Id);
+        }
         public List<RequestBindingModel> GetModelRequestsForAgents(RequestBindingModel model)
         {
             return new List<RequestBindingModel> { _requestStorage.GetrequestsForAgents(model) };

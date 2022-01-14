@@ -11,6 +11,7 @@ namespace SecuritiesBusinessLogic.Interfaces
         List<RequestViewModel> GetFullList();
         List<RequestViewModel> GetFilteredList(RequestBindingModel model);
         RequestViewModel GetElement(RequestBindingModel model);
+        List<RequestViewModel> GetFilteredRequestClient(int Id);
         RequestBindingModel GetrequestsForAgents(RequestBindingModel model);
         void Insert(RequestBindingModel model);
         void Update(RequestBindingModel model);
