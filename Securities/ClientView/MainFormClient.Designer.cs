@@ -33,7 +33,6 @@ namespace Securities
             this.информацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.моиПортфелиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.приобретенныеЦенныеБумагиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.эмитентыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.заявкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.договораToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оплатаДоговоровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,8 +62,7 @@ namespace Securities
             // 
             this.информацияToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.моиПортфелиToolStripMenuItem,
-            this.приобретенныеЦенныеБумагиToolStripMenuItem,
-            this.эмитентыToolStripMenuItem});
+            this.приобретенныеЦенныеБумагиToolStripMenuItem});
             this.информацияToolStripMenuItem.Name = "информацияToolStripMenuItem";
             this.информацияToolStripMenuItem.Size = new System.Drawing.Size(137, 29);
             this.информацияToolStripMenuItem.Text = "Информация";
@@ -82,13 +80,6 @@ namespace Securities
             this.приобретенныеЦенныеБумагиToolStripMenuItem.Size = new System.Drawing.Size(377, 34);
             this.приобретенныеЦенныеБумагиToolStripMenuItem.Text = "Приобретенные ценные бумаги";
             this.приобретенныеЦенныеБумагиToolStripMenuItem.Click += new System.EventHandler(this.приобретенныеЦенныеБумагиToolStripMenuItem_Click);
-            // 
-            // эмитентыToolStripMenuItem
-            // 
-            this.эмитентыToolStripMenuItem.Name = "эмитентыToolStripMenuItem";
-            this.эмитентыToolStripMenuItem.Size = new System.Drawing.Size(377, 34);
-            this.эмитентыToolStripMenuItem.Text = "Эмитенты";
-            this.эмитентыToolStripMenuItem.Click += new System.EventHandler(this.эмитентыToolStripMenuItem_Click);
             // 
             // заявкиToolStripMenuItem
             // 
@@ -155,7 +146,6 @@ namespace Securities
         private System.Windows.Forms.ToolStripMenuItem информацияToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem моиПортфелиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem приобретенныеЦенныеБумагиToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem эмитентыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem заявкиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem договораToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem оплатаДоговоровToolStripMenuItem;

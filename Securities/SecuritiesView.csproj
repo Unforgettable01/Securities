@@ -171,12 +171,6 @@
     <Compile Include="ClientView\FormContractBuySale.Designer.cs">
       <DependentUpon>FormContractBuySale.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientView\FormEmitenty.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ClientView\FormEmitenty.Designer.cs">
-      <DependentUpon>FormEmitenty.cs</DependentUpon>
-    </Compile>
     <Compile Include="ClientView\FormPaymentContractBuySale.cs">
       <SubType>Form</SubType>
     </Compile>

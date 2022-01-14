@@ -33,12 +33,6 @@ namespace Securities
             form.ShowDialog();
         }
 
-        private void эмитентыToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var form = Container.Resolve<FormEmitenty>();
-            form.ShowDialog();
-        }
-
         private void заявкиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormRequest>();
