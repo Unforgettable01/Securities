@@ -14,5 +14,7 @@ namespace SecuritiesBusinessLogic.ViewModels
         public decimal? Sum { get; set; }
         [DisplayName("Номер заявки")]
         public int RequestId { get; set; }
+        [DisplayName("Дата")]
+        public DateTime Date { get; set; }
     }
 }

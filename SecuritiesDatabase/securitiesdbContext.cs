@@ -101,11 +101,13 @@ namespace SecuritiesDatabase
                 entity.HasOne(d => d.Bag)
                     .WithMany(p => p.BagSecurities)
                     .HasForeignKey(d => d.BagId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("bagId");
 
                 entity.HasOne(d => d.Securities)
                     .WithMany(p => p.BagSecurities)
                     .HasForeignKey(d => d.SecuritiesId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("securitiesId");
             });
 
@@ -142,6 +144,10 @@ namespace SecuritiesDatabase
                     .HasIdentityOptions(null, null, null, 1000000L, null, null)
                     .UseIdentityAlwaysColumn();
 
+                entity.Property(e => e.Date)
+                    .HasColumnName("date")
+                    .HasColumnType("date");
+
                 entity.Property(e => e.RequestId).HasColumnName("requestId");
 
                 entity.Property(e => e.Status)
@@ -155,6 +161,7 @@ namespace SecuritiesDatabase
                 entity.HasOne(d => d.Request)
                     .WithMany(p => p.ContractBuy)
                     .HasForeignKey(d => d.RequestId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("requestId");
             });
 
@@ -165,6 +172,10 @@ namespace SecuritiesDatabase
                 entity.Property(e => e.Id)
                     .HasIdentityOptions(null, null, null, 1000000L, null, null)
                     .UseIdentityAlwaysColumn();
+
+                entity.Property(e => e.Date)
+                    .HasColumnName("date")
+                    .HasColumnType("date");
 
                 entity.Property(e => e.RequestId).HasColumnName("requestId");
 
@@ -179,6 +190,7 @@ namespace SecuritiesDatabase
                 entity.HasOne(d => d.Request)
                     .WithMany(p => p.ContractBuySale)
                     .HasForeignKey(d => d.RequestId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("requestId");
             });
 
@@ -216,6 +228,7 @@ namespace SecuritiesDatabase
                 entity.HasOne(d => d.ContractBuy)
                     .WithMany(p => p.PaymentContractBuy)
                     .HasForeignKey(d => d.ContractBuyId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("contractBuyId");
             });
 
@@ -240,6 +253,7 @@ namespace SecuritiesDatabase
                 entity.HasOne(d => d.ContractBuySale)
                     .WithMany(p => p.PaymentContractBuySale)
                     .HasForeignKey(d => d.ContractBuySaleId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("contractBuySaleId");
             });
 
@@ -268,16 +282,19 @@ namespace SecuritiesDatabase
                 entity.HasOne(d => d.Agent)
                     .WithMany(p => p.Request)
                     .HasForeignKey(d => d.AgentId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("agentId");
 
                 entity.HasOne(d => d.Bag)
                     .WithMany(p => p.Request)
                     .HasForeignKey(d => d.BagId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("bagId");
 
                 entity.HasOne(d => d.Client)
                     .WithMany(p => p.Request)
                     .HasForeignKey(d => d.ClientId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("clientId");
             });
 
@@ -306,6 +323,7 @@ namespace SecuritiesDatabase
                 entity.HasOne(d => d.Emitent)
                     .WithMany(p => p.Security)
                     .HasForeignKey(d => d.EmitentId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("emitentId");
             });
 

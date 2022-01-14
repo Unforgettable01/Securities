@@ -10,5 +10,6 @@ namespace SecuritiesBusinessLogic.BindingModels
         public string Status { get; set; }
         public decimal Sum { get; set; }
         public int RequestId { get; set; }
+        public DateTime Date { get; set; }
     }
 }
