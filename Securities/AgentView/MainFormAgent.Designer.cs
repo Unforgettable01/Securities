@@ -39,11 +39,14 @@ namespace Securities
             this.договораToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оплатыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.договораПокупкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.договораКуплипродажиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.справочникиToolStripMenuItem1,
@@ -104,6 +107,9 @@ namespace Securities
             // 
             // договораToolStripMenuItem
             // 
+            this.договораToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.договораПокупкиToolStripMenuItem,
+            this.договораКуплипродажиToolStripMenuItem});
             this.договораToolStripMenuItem.Name = "договораToolStripMenuItem";
             this.договораToolStripMenuItem.Size = new System.Drawing.Size(110, 29);
             this.договораToolStripMenuItem.Text = "Договора";
@@ -119,6 +125,20 @@ namespace Securities
             this.отчетыToolStripMenuItem.Name = "отчетыToolStripMenuItem";
             this.отчетыToolStripMenuItem.Size = new System.Drawing.Size(88, 29);
             this.отчетыToolStripMenuItem.Text = "Отчеты";
+            // 
+            // договораПокупкиToolStripMenuItem
+            // 
+            this.договораПокупкиToolStripMenuItem.Name = "договораПокупкиToolStripMenuItem";
+            this.договораПокупкиToolStripMenuItem.Size = new System.Drawing.Size(329, 34);
+            this.договораПокупкиToolStripMenuItem.Text = "Договора покупки";
+            this.договораПокупкиToolStripMenuItem.Click += new System.EventHandler(this.договораПокупкиToolStripMenuItem_Click);
+            // 
+            // договораКуплипродажиToolStripMenuItem
+            // 
+            this.договораКуплипродажиToolStripMenuItem.Name = "договораКуплипродажиToolStripMenuItem";
+            this.договораКуплипродажиToolStripMenuItem.Size = new System.Drawing.Size(329, 34);
+            this.договораКуплипродажиToolStripMenuItem.Text = "Договора купли-продажи";
+            this.договораКуплипродажиToolStripMenuItem.Click += new System.EventHandler(this.договораКуплипродажиToolStripMenuItem_Click);
             // 
             // MainFormAgent
             // 
@@ -148,5 +168,7 @@ namespace Securities
         private System.Windows.Forms.ToolStripMenuItem агентыToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem эмитентыToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem ценныеБумагиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem договораПокупкиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem договораКуплипродажиToolStripMenuItem;
     }
 }

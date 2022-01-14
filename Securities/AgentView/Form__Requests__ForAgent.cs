@@ -2,13 +2,6 @@
 using SecuritiesBusinessLogic.BusinessLogics;
 using SecuritiesBusinessLogic.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unity;
 
@@ -33,32 +26,77 @@ namespace Securities.AgentView
         }
         public void LoadData()
         {
-            var requestList = _requestBusinesslogic.GetModelRequestsForAgents(new RequestBindingModel
+            var requestList = _requestBusinesslogic.Read(null);
+            for (int i = 0; i < requestList.Count; i++)
             {
-                AgentId = 0
-            })?[0];
+                if (requestList[i].AgentName != "")
+                {
+                    requestList.RemoveAt(i);
+                    i--;
+                }
+            }
             if (requestList != null)
             {
                 dataGridViewRequestsWithOutPayments.DataSource = requestList;
                 dataGridViewRequestsWithOutPayments.Columns[0].Visible = false;
             }
+
+            var requestListFull = _requestBusinesslogic.Read(null);
+            for (int i = 0; i < requestListFull.Count; i++)
+            {
+                if (requestListFull[i].AgentName != Program.Agent.AgentName)
+                {
+                    requestListFull.RemoveAt(i);
+                    i--;
+                }
+            }
+            if (requestListFull != null)
+            {
+                dataGridViewRequestsWithPayments.DataSource = requestListFull;
+                dataGridViewRequestsWithPayments.Columns[0].Visible = false;
+            }
         }
         private void buttonCheckRequest_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void dataGridViewRequestsWithOutPayments_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
-        {
+                int id = Convert.ToInt32(dataGridViewRequestsWithOutPayments.SelectedRows[0].Cells[0].Value);
+            
+            RequestViewModel requestList = _requestBusinesslogic.Read(new RequestBindingModel { Id = id })?[0];
+            try
+            {
+                _requestBusinesslogic.Create(new RequestBindingModel
+                {
+                    Id = id,
+                    RequestSum = requestList.RequestSum,
+                    RequestDate = requestList.RequestDate,
+                    BagId = requestList.BagId,
+                    AgentId = Program.Agent.Id
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
+               MessageBoxIcon.Error);
+            }            
             if (dataGridViewRequestsWithOutPayments.SelectedRows.Count == 1)
             {
                 var form = Container.Resolve<FormRequestForAgent>();
-                form.Id = Convert.ToInt32(dataGridViewRequestsWithOutPayments.SelectedRows[0].Cells[0].Value);
+                form.Id = (int)id;
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     LoadData();
                 }
-            }
+            }           
+        }
+
+        private void dataGridViewRequestsWithOutPayments_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }

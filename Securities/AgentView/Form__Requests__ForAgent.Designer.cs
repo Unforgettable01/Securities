@@ -32,6 +32,7 @@ namespace Securities.AgentView
             this.dataGridViewRequestsWithOutPayments = new System.Windows.Forms.DataGridView();
             this.buttonCheckRequest = new System.Windows.Forms.Button();
             this.dataGridViewRequestsWithPayments = new System.Windows.Forms.DataGridView();
+            this.buttonRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRequestsWithOutPayments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRequestsWithPayments)).BeginInit();
             this.SuspendLayout();
@@ -70,11 +71,23 @@ namespace Securities.AgentView
             this.dataGridViewRequestsWithPayments.Size = new System.Drawing.Size(1323, 428);
             this.dataGridViewRequestsWithPayments.TabIndex = 2;
             // 
+            // buttonRefresh
+            // 
+            this.buttonRefresh.Location = new System.Drawing.Point(1352, 303);
+            this.buttonRefresh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonRefresh.Name = "buttonRefresh";
+            this.buttonRefresh.Size = new System.Drawing.Size(205, 35);
+            this.buttonRefresh.TabIndex = 3;
+            this.buttonRefresh.Text = "Обновить страницу";
+            this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
+            // 
             // Form__Requests__ForAgent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1766, 985);
+            this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.dataGridViewRequestsWithPayments);
             this.Controls.Add(this.buttonCheckRequest);
             this.Controls.Add(this.dataGridViewRequestsWithOutPayments);
@@ -94,5 +107,6 @@ namespace Securities.AgentView
         private System.Windows.Forms.DataGridView dataGridViewRequestsWithOutPayments;
         private System.Windows.Forms.Button buttonCheckRequest;
         private System.Windows.Forms.DataGridView dataGridViewRequestsWithPayments;
+        private System.Windows.Forms.Button buttonRefresh;
     }
 }

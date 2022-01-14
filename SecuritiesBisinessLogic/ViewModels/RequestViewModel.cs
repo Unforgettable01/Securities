@@ -13,11 +13,12 @@ namespace SecuritiesBusinessLogic.ViewModels
         public DateTime RequestDate { get; set; }
         [DisplayName("Сумма")]
         public decimal RequestSum { get; set; }
-        [DisplayName("ФИО клиента")]
-        public string ClientName { get; set; }
+       
         [DisplayName("ФИО агента")]
         public string AgentName { get; set; }
         [DisplayName("Номер портфеля")]
         public int BagId { get; set; }
+        [DisplayName("ФИО клиента")]
+        public string ClientName { get; set; }
     }
 }

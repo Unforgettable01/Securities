@@ -24,12 +24,11 @@ namespace SecuritiesDatabase.Implements
                         RequestDate = (DateTime)rec.Date,
                         RequestSum = (decimal)rec.Sum,
                         ClientName = rec.Bag.Client.Fio,
-                        AgentName = rec.Agent.Fio,
+                        AgentName = rec.AgentId.HasValue ? rec.Agent.Fio : string.Empty,
                         BagId = rec.Bag.Id
                     }).ToList();
             }
-        }
-
+        }       
         public List<RequestViewModel> GetFilteredList(RequestBindingModel model)
         {
             if (model == null)
@@ -49,7 +48,7 @@ namespace SecuritiesDatabase.Implements
                         RequestDate = (DateTime)rec.Date,
                         RequestSum = (decimal)rec.Sum,
                         ClientName = rec.Bag.Client.Fio,
-                        AgentName = rec.Agent.Fio,
+                        AgentName = rec.AgentId.HasValue ? rec.Agent.Fio : string.Empty,
                         BagId = rec.Bag.Id
                     }).ToList();
             }
@@ -76,7 +75,7 @@ namespace SecuritiesDatabase.Implements
                     RequestDate = (DateTime)request.Date,
                     RequestSum = (decimal)request.Sum,
                     ClientName = request.Bag.Client.Fio,
-                    AgentName = request.Agent.Fio,
+                    AgentName = request.AgentId.HasValue ? request.Agent.Fio : string.Empty,
                     BagId = request.Bag.Id
                 } : null;
             }
@@ -92,8 +91,7 @@ namespace SecuritiesDatabase.Implements
                 var operation = context.Request
                     .Include(rec => rec.Agent)
                     .Include(rec => rec.Bag)
-                .FirstOrDefault(rec => (rec.Id == model.Id)
-                || (rec.AgentId == model.AgentId));
+                .FirstOrDefault(rec => (rec.Id == model.Id) || (rec.AgentId == model.AgentId));
                 return operation != null ?
                 CreateModele(operation) : null;
             }

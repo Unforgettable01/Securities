@@ -57,6 +57,7 @@ namespace Securities
             else if (agent != null)
             {
                 var form = Container.Resolve<MainFormAgent>();
+                Program.Agent = agent;
                 form.ShowDialog();
             }
             else

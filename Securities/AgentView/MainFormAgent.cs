@@ -44,5 +44,17 @@ namespace Securities
             var form = Container.Resolve<Form__Requests__ForAgent>();
             form.ShowDialog();
         }
+
+        private void договораПокупкиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormContractsBuy>();
+            form.ShowDialog();
+        }
+
+        private void договораКуплипродажиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormContractsBuySale>();
+            form.ShowDialog();
+        }
     }
 }

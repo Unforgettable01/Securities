@@ -16,6 +16,7 @@ namespace Securities
     static class Program
     {
         public static ClientViewModel Client { get; set; }
+        public static AgentViewModel Agent { get; set; }
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
@@ -44,6 +45,9 @@ namespace Securities
 
             currentContainer.RegisterType<ISecurityStorage, SecurityStorage>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<SecurityBusinessLogic>(new HierarchicalLifetimeManager());
+
+            currentContainer.RegisterType<IRequestStorage, RequestStorage>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<RequestBusinessLogic>(new HierarchicalLifetimeManager());
 
             return currentContainer;
         }
