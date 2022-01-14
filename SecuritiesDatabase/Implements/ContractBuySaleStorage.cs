@@ -96,6 +96,7 @@ namespace SecuritiesDatabase.Implements
             contractBuySale.Status = model.Status;
             contractBuySale.Sum = model.ContractSum;
             contractBuySale.RequestId = model.RequestId;
+            contractBuySale.Date = model.Date;
             return contractBuySale;
         }
 
@@ -106,7 +107,8 @@ namespace SecuritiesDatabase.Implements
                 Id = contractBuySale.Id,
                 ContractSum = contractBuySale.Sum,
                 Status = contractBuySale.Status,
-                RequestId = contractBuySale.Request.Id
+                RequestId = contractBuySale.Request.Id,
+                Date = (DateTime)contractBuySale.Date
             };
         }
     }

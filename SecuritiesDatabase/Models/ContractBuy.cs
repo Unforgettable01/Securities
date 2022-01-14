@@ -7,19 +7,20 @@ using System.Collections.Generic;
 
 namespace SecuritiesDatabase
 {
-    public partial class ContractBuySale
+    public partial class ContractBuy
     {
-        public ContractBuySale()
+        public ContractBuy()
         {
-            PaymentContractBuySale = new HashSet<PaymentContractBuySale>();
+            PaymentContractBuy = new HashSet<PaymentContractBuy>();
         }
 
         public int Id { get; set; }
         public string Status { get; set; }
         public decimal? Sum { get; set; }
         public int? RequestId { get; set; }
+        public DateTime? Date { get; set; }
 
         public virtual Request Request { get; set; }
-        public virtual ICollection<PaymentContractBuySale> PaymentContractBuySale { get; set; }
+        public virtual ICollection<PaymentContractBuy> PaymentContractBuy { get; set; }
     }
 }
