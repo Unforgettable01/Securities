@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Securities.AgentView;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,6 +36,12 @@ namespace Securities
         private void ценныеБумагиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormSecurities>();
+            form.ShowDialog();
+        }
+
+        private void заявкиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<Form__Requests__ForAgent>();
             form.ShowDialog();
         }
     }

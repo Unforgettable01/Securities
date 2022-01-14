@@ -81,7 +81,23 @@ namespace SecuritiesDatabase.Implements
                 } : null;
             }
         }
-
+        public RequestBindingModel GetrequestsForAgents(RequestBindingModel model)
+        {
+            if (model == null)
+            {
+                return null;
+            }
+            using (var context = new securitiesdbContext())
+            {
+                var operation = context.Request
+                    .Include(rec => rec.Agent)
+                    .Include(rec => rec.Bag)
+                .FirstOrDefault(rec => (rec.Id == model.Id)
+                || (rec.AgentId == model.AgentId));
+                return operation != null ?
+                CreateModele(operation) : null;
+            }
+        }
         public void Insert(RequestBindingModel model)
         {
             using (var context = new securitiesdbContext())
@@ -158,6 +174,18 @@ namespace SecuritiesDatabase.Implements
             request.BagId = model.BagId;
 
             return request;
+        }
+
+        private RequestBindingModel CreateModele(Request request)
+        {
+            return new RequestBindingModel
+            {
+                Id = request.Id,
+                RequestDate = (DateTime)request.Date,
+                RequestSum = (decimal)request.Sum,
+                AgentId = (int)request.AgentId,
+                BagId = (int)request.BagId
+            };
         }
     }
 }

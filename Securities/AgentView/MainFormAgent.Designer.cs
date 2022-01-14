@@ -44,7 +44,6 @@ namespace Securities
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.справочникиToolStripMenuItem1,
@@ -72,27 +71,27 @@ namespace Securities
             // клиентыToolStripMenuItem1
             // 
             this.клиентыToolStripMenuItem1.Name = "клиентыToolStripMenuItem1";
-            this.клиентыToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
+            this.клиентыToolStripMenuItem1.Size = new System.Drawing.Size(241, 34);
             this.клиентыToolStripMenuItem1.Text = "Клиенты";
             this.клиентыToolStripMenuItem1.Click += new System.EventHandler(this.клиентыToolStripMenuItem1_Click);
             // 
             // агентыToolStripMenuItem1
             // 
             this.агентыToolStripMenuItem1.Name = "агентыToolStripMenuItem1";
-            this.агентыToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
+            this.агентыToolStripMenuItem1.Size = new System.Drawing.Size(241, 34);
             this.агентыToolStripMenuItem1.Text = "Агенты";
             // 
             // эмитентыToolStripMenuItem1
             // 
             this.эмитентыToolStripMenuItem1.Name = "эмитентыToolStripMenuItem1";
-            this.эмитентыToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
+            this.эмитентыToolStripMenuItem1.Size = new System.Drawing.Size(241, 34);
             this.эмитентыToolStripMenuItem1.Text = "Эмитенты";
             this.эмитентыToolStripMenuItem1.Click += new System.EventHandler(this.эмитентыToolStripMenuItem1_Click);
             // 
             // ценныеБумагиToolStripMenuItem
             // 
             this.ценныеБумагиToolStripMenuItem.Name = "ценныеБумагиToolStripMenuItem";
-            this.ценныеБумагиToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.ценныеБумагиToolStripMenuItem.Size = new System.Drawing.Size(241, 34);
             this.ценныеБумагиToolStripMenuItem.Text = "Ценные бумаги";
             this.ценныеБумагиToolStripMenuItem.Click += new System.EventHandler(this.ценныеБумагиToolStripMenuItem_Click);
             // 
@@ -101,6 +100,7 @@ namespace Securities
             this.заявкиToolStripMenuItem.Name = "заявкиToolStripMenuItem";
             this.заявкиToolStripMenuItem.Size = new System.Drawing.Size(85, 29);
             this.заявкиToolStripMenuItem.Text = "Заявки";
+            this.заявкиToolStripMenuItem.Click += new System.EventHandler(this.заявкиToolStripMenuItem_Click);
             // 
             // договораToolStripMenuItem
             // 

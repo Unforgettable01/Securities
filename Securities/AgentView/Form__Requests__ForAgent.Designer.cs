@@ -30,7 +30,7 @@ namespace Securities.AgentView
         private void InitializeComponent()
         {
             this.dataGridViewRequestsWithOutPayments = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonCheckRequest = new System.Windows.Forms.Button();
             this.dataGridViewRequestsWithPayments = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRequestsWithOutPayments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRequestsWithPayments)).BeginInit();
@@ -40,40 +40,49 @@ namespace Securities.AgentView
             // 
             this.dataGridViewRequestsWithOutPayments.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewRequestsWithOutPayments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRequestsWithOutPayments.Location = new System.Drawing.Point(13, 13);
+            this.dataGridViewRequestsWithOutPayments.Location = new System.Drawing.Point(20, 20);
+            this.dataGridViewRequestsWithOutPayments.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridViewRequestsWithOutPayments.Name = "dataGridViewRequestsWithOutPayments";
-            this.dataGridViewRequestsWithOutPayments.Size = new System.Drawing.Size(882, 278);
+            this.dataGridViewRequestsWithOutPayments.RowHeadersWidth = 62;
+            this.dataGridViewRequestsWithOutPayments.Size = new System.Drawing.Size(1323, 428);
             this.dataGridViewRequestsWithOutPayments.TabIndex = 0;
+            this.dataGridViewRequestsWithOutPayments.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dataGridViewRequestsWithOutPayments_RowStateChanged);
             // 
-            // button1
+            // buttonCheckRequest
             // 
-            this.button1.Location = new System.Drawing.Point(901, 158);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonCheckRequest.Location = new System.Drawing.Point(1352, 243);
+            this.buttonCheckRequest.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonCheckRequest.Name = "buttonCheckRequest";
+            this.buttonCheckRequest.Size = new System.Drawing.Size(134, 35);
+            this.buttonCheckRequest.TabIndex = 1;
+            this.buttonCheckRequest.Text = "Просмотреть";
+            this.buttonCheckRequest.UseVisualStyleBackColor = true;
+            this.buttonCheckRequest.Click += new System.EventHandler(this.buttonCheckRequest_Click);
             // 
             // dataGridViewRequestsWithPayments
             // 
             this.dataGridViewRequestsWithPayments.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewRequestsWithPayments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRequestsWithPayments.Location = new System.Drawing.Point(13, 312);
+            this.dataGridViewRequestsWithPayments.Location = new System.Drawing.Point(20, 480);
+            this.dataGridViewRequestsWithPayments.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridViewRequestsWithPayments.Name = "dataGridViewRequestsWithPayments";
-            this.dataGridViewRequestsWithPayments.Size = new System.Drawing.Size(882, 278);
+            this.dataGridViewRequestsWithPayments.RowHeadersWidth = 62;
+            this.dataGridViewRequestsWithPayments.Size = new System.Drawing.Size(1323, 428);
             this.dataGridViewRequestsWithPayments.TabIndex = 2;
             // 
             // Form__Requests__ForAgent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1177, 640);
+            this.ClientSize = new System.Drawing.Size(1766, 985);
             this.Controls.Add(this.dataGridViewRequestsWithPayments);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonCheckRequest);
             this.Controls.Add(this.dataGridViewRequestsWithOutPayments);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form__Requests__ForAgent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Заявки для обработки";
+            this.Load += new System.EventHandler(this.FormRequestsForAgent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRequestsWithOutPayments)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRequestsWithPayments)).EndInit();
             this.ResumeLayout(false);
@@ -83,7 +92,7 @@ namespace Securities.AgentView
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridViewRequestsWithOutPayments;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonCheckRequest;
         private System.Windows.Forms.DataGridView dataGridViewRequestsWithPayments;
     }
 }

@@ -275,6 +275,9 @@
     <EmbeddedResource Include="AgentView\Form__Requests__ForAgent.resx">
       <DependentUpon>Form__Requests__ForAgent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AgentView\MainFormAgent.resx">
+      <DependentUpon>MainFormAgent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientView\FormBag.resx">
       <DependentUpon>FormBag.cs</DependentUpon>
     </EmbeddedResource>
